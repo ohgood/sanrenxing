@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>策略上传(测试用)</title>
+</head>
+
+<body>
+<h1>充值策略上传测试页面</h1>
+<form enctype="multipart/form-data" method="post" action="http://localhost:8090/strategy/strategy_upload">
+    文件<input type="file" name="file"/> <p/>
+    <input type="text" value="1" name="strategy_id" size="15"><p/>
+    <input type="submit" value="上传"/>
+</form>
+
+<form enctype="multipart/form-data" method="post" action="http://localhost:8010/api/purchase/card_input_info/upload_file">
+    文件<input type="file" name="file"/> <p/>
+    <input type="text" value="15251323101" name="username" size="15"><p/>
+    <input type="text" value="" name="message" size="15"><p/>
+    <input type="text" value="1" name="costing" size="15"><p/>
+    <input type="text" value="1" name="priority" size="15"><p/>
+    <input type="text" value="1" name="buy_type" size="15"><p/>
+    <input type="text" value="15251323101" name="buyer" size="15"><p/>
+    <input type="text" value="1" name="has_pics" size="15"><p/>
+    <input type="text" value="B" name="no_position" size="15"><p/>
+    <input type="text" value="C" name="pwd_position" size="15"><p/>
+    <input type="text" value="1" name="state" size="15"><p/>
+    <input type="text" value="1505720869" name="req_batch" size="15"><p/>
+    <input type="text" value="DH170919153722" name="arr_batch" size="15"><p/>
+    <input type="text" value="5000" name="sum" size="15"><p/>
+    <input type="text" value="10" name="input_sum" size="15"><p/>
+    <input type="text" value="2" name="operator" size="15"><p/>
+    <input type="text" value="100" name="denomination" size="15"><p/>
+    <input type="text" value="500" name="amount" size="15"><p/>
+    <input type="text" value="1" name="card_type" size="15"><p/>
+    <input type="text" value="1000" name="input_amount" size="15"><p/>
+    <input type="text" value="60" name="uid" size="15"><p/>
+    <input type="text" value="DH170919153722" name="in_batch" size="15"><p/>
+    <input type="submit" value="上传"/>
+</form>
+</body>
+</html>

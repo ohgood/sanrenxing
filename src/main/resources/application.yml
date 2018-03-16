@@ -1,0 +1,30 @@
+server:
+  port: 8090
+spring:
+  mvc:
+    throw-exception-if-no-handler-found: true
+  resources:
+    add-mappings: false
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+datasource:
+  shop:
+    jdbcUrl: jdbc:mysql://116.196.80.176:3306/shop?useUnicode=true&amp;characterEncoding=utf-
+    username: admin
+    password: 123456
+    maximumPoolSize: 20
+  admin:
+    jdbcUrl: jdbc:mysql://116.196.80.176:3306/admin?useUnicode=true&amp;characterEncoding=utf-
+    username: admin
+    password: 123456
+    maximumPoolSize: 20
+qiniuyun:
+  oss:
+    #endpoint: oss-cn-hangzhou.aliyuncs.com
+    accessKeyId: la0NkbDvpax3xHMXESivXgNK_spRHjvLtlcSGXdv
+    accessKeySecret: Y1zxdAxunI02SzvjUAdZ9oeqN2MrteZFD4HDcWVZ
+    bucketName: tonywu
+pagehelper:
+  auto-dialect: true
+  helper-dialect: mysql
+  page-size-zero: true

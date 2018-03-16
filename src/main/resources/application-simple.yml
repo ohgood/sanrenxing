@@ -1,0 +1,51 @@
+server:
+  port: {{ juhe_console_server_port }}
+spring:
+  mvc:
+    throw-exception-if-no-handler-found: true
+  resources:
+    add-mappings: false
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+datasource:
+  recharge:
+    jdbcUrl: jdbc:mysql://{{ common_db_server }}:3306/juhe_recharge
+    username: {{ common_db_user }}
+    password: {{ common_db_password }}
+    maximumPoolSize: 20
+  admin:
+    jdbcUrl: jdbc:mysql://{{ common_db_server }}:3306/juhe_admin
+    username: {{ common_db_user }}
+    password: {{ common_db_password }}
+    maximumPoolSize: 20
+pagehelper:
+  auto-dialect: true
+  helper-dialect: mysql
+  page-size-zero: true
+aliyun:
+  mq:
+    dispatch:
+      value: {{ common_mq_dispatch_value }}
+      pid: {{ common_mq_dispatch_pid }}
+    accept:
+      value: {{ common_mq_accept_value }}
+      pid: {{ common_mq_accept_pid }}
+    callback:
+      value: {{ common_mq_callback_value }}
+      pid: {{ common_mq_callback_pid }}
+    accessKey: {{ common_mq_AccessKey }}
+    secretKey: {{ common_mq_SecretKey }}
+  redis:
+    host: {{ common_redis_host }}
+    port: {{ common_redis_port }}
+    timeout: 60000
+    auth: {{ common_redis_auth }}
+url:
+  dispatch:
+    reloadStrategyUrl: {{ juhe_console_url_reload_strategy }}
+    # 创建收单规则
+    cacheOrderCreateUrl: {{ juhe_console_url_cache_order_create }}
+    # 查询收单规则
+    cacheOrderSearchUrl: {{ juhe_console_url_cache_order_search }}
+    # 删除收单规则
+    cacheOrderDeleteUrl: {{ juhe_console_url_cache_order_delete }}
