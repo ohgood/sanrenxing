@@ -7,7 +7,6 @@ import org.springframework.validation.beanvalidation.MethodValidationPostProcess
 
 /**
  * Created on 2017/7/19.
- *
  * @author tony
  */
 @Configuration

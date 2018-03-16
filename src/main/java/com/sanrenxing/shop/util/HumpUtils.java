@@ -2,9 +2,7 @@ package com.sanrenxing.shop.util;
 
 /**
  * 字符串  驼峰形式跟下划线形式互转
- *
  * Created on 2017/7/28.
- *
  * @author tony
  */
 public class HumpUtils {

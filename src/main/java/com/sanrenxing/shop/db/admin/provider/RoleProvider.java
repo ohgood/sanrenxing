@@ -4,7 +4,6 @@ import org.apache.ibatis.jdbc.SQL;
 
 /**
  * Created on 2017/8/2.
- *
  * @author tony
  */
 public class RoleProvider {

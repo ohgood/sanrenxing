@@ -20,8 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.validation.constraints.Pattern;
 
 /**
- * Created on 2017/7/13.
- *
+ * Created on 2017/7/13
  * @author tony
  */
 @RestController

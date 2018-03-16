@@ -6,9 +6,8 @@ import lombok.Data;
 import java.sql.Timestamp;
 
 /**
+ * Created on 2018/3/15.
  * @author tony
- * @date 2018/3/15.
- * @descrition
  */
 @Data
 @Table("book")

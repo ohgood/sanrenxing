@@ -3,9 +3,8 @@ package com.sanrenxing.shop.controller.dto;
 import lombok.Data;
 
 /**
+ * Created on 2018/3/15
  * @author tony
- * @date 2018/3/15
- * @description
  */
 @Data
 public class BookDTO {

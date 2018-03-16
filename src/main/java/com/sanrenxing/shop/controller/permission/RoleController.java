@@ -17,8 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.validation.constraints.NotNull;
 
 /**
- * Created on 2017/8/9.
- *
+ * Created on 2017/8/9
  * @author tony
  */
 @RestController

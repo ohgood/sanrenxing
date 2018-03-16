@@ -12,7 +12,7 @@ import java.util.Properties;
 /**
  * 声明式事务配置
  * Created on 2018/1/10.
- * @author wukaitong
+ * @author tony
  */
 @Configuration
 public class TransactionalConfig {

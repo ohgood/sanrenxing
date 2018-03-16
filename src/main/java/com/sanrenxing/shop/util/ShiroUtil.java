@@ -4,7 +4,8 @@ import com.sanrenxing.shop.db.admin.bean.User;
 import org.apache.shiro.SecurityUtils;
 
 /**
- * Created by Dell on 2017/7/3.
+ * Created on 2017/7/3.
+ * @author tony
  */
 public class ShiroUtil {
 

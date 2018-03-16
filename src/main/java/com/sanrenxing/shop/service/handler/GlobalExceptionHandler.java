@@ -18,9 +18,7 @@ import java.util.stream.Collectors;
 
 /**
  * 统一异常处理
- *
  * Created on 2017/7/19.
- *
  * @author tony
  */
 @ControllerAdvice

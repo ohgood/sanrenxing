@@ -11,7 +11,6 @@ import javax.validation.constraints.NotNull;
 
 /**
  * Created on 2017/2/16.
- *
  * @author tony
  */
 @Data

@@ -12,9 +12,8 @@ import org.springframework.web.multipart.MultipartFile;
 import java.lang.reflect.InvocationTargetException;
 
 /**
+ * Created on 2018/8/8
  * @author tony
- * @date 2018/8/8
- * @description
  */
 @RestController
 @RequestMapping("/book")

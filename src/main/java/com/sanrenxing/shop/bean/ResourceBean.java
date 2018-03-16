@@ -7,7 +7,6 @@ import java.util.List;
 
 /**
  * Created on 2017/3/9.
- *
  * @author tony
  */
 public class ResourceBean {

@@ -17,9 +17,7 @@ import java.util.concurrent.Executors;
 
 /**
  * 记录请求日志
- *
  * Created on 2017/2/16.
- *
  * @author tony
  */
 @Aspect
@@ -29,27 +27,16 @@ public class LogAspect {
     private static final ExecutorService threadPool = Executors.newFixedThreadPool(5);
     private static final Logger logger = LoggerFactory.getLogger(LogAspect.class);
 
-//    @AfterThrowing(value = "execution(* cn.juhe.recharge.controller.*.*(..)) ", throwing = "e")
-//    public void catchSystemError(Throwable e) throws Throwable {
-//        if (e instanceof ConstraintViolationException) {
-//            throw e;
-//        }
-//        throw new InternalServerErrorException("服务器内部有异常啦", e);
-//    }
-
-
     @Before(value = "execution(* com.sanrenxing.shop.controller.*.*(..)) ")
     public void recordLog() throws Throwable {
         RequestAttributes ra = RequestContextHolder.getRequestAttributes();
         ServletRequestAttributes sra = (ServletRequestAttributes) ra;
         HttpServletRequest request = sra.getRequest();
-        threadPool.execute(() -> {
-            String url = String.valueOf(request.getRequestURL());
-            String method = request.getMethod();
-            String uri = request.getRequestURI();
-            String queryString = request.getQueryString();
-            logger.info("接收到请求---> url: {}, method: {}, uri: {}, params: {}", url, method, uri, queryString);
-        });
+        String url = String.valueOf(request.getRequestURL());
+        String method = request.getMethod();
+        String uri = request.getRequestURI();
+        String queryString = request.getQueryString();
+        logger.info("接收到请求---> url: {}, method: {}, uri: {}, params: {}", url, method, uri, queryString);
     }
 
 

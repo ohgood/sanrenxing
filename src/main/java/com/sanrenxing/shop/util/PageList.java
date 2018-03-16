@@ -12,7 +12,6 @@ import java.util.Collection;
 
 /**
  * Created on 2017/3/16.
- *
  * @author tony
  */
 @JsonSerialize(using = PageList.CustomSerializer.class)

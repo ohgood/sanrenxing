@@ -16,9 +16,9 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 
 /**
+ * 七牛云存储
+ * Created on 2017/2/8
  * @author tony
- * @date 2017/2/8
- * @description  七牛云存储
  */
 public class OSSHelper {
 

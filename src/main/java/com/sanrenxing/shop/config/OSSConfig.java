@@ -9,7 +9,6 @@ import org.springframework.stereotype.Component;
 
 /**
  * Created on 2017/10/31.
- *
  * @author tony
  */
 @Configuration

@@ -8,9 +8,8 @@ import java.util.Collections;
 import java.util.List;
 
 /**
+ * Created on 2018/3/15
  * @author tony
- * @date 2018/3/15
- * @description
  */
 public class BeanUtil {
 

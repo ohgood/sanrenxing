@@ -2,7 +2,6 @@ package com.sanrenxing.shop.util;
 
 /**
  * Created on 2016/12/19
- *
  * @author annpeter.it@gmail.com
  */
 public interface IntEnum<E extends Enum<E>> {

@@ -2,7 +2,6 @@ package com.sanrenxing.shop.util;
 
 import org.apache.ibatis.type.BaseTypeHandler;
 import org.apache.ibatis.type.JdbcType;
-
 import java.sql.CallableStatement;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -11,14 +10,10 @@ import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-//import org.apache.ibatis.type.MappedJdbcTypes;
-
 /**
  * Created on 2017/8/2.
- *
  * @author tony
  */
-//@MappedJdbcTypes(JdbcType.VARCHAR)
 public class SetTypeHandler extends BaseTypeHandler<Set<Integer>> {
 
     @Override

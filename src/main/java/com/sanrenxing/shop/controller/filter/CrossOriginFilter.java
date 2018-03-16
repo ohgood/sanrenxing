@@ -7,7 +7,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * Created by Administrator on 2017/9/24 0024.
+ * Created on 2017/9/24
+ * @author tony
  */
 @WebFilter(filterName="crossOrignFilter", urlPatterns={"/*"}, initParams={@WebInitParam(name="AccessControlAllowOrigin",value="*"),
         @WebInitParam(name="AccessControlAllowMethods", value="POST, GET, DELETE, PUT"),

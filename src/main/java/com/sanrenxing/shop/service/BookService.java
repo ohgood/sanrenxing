@@ -7,9 +7,8 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 
 /**
+ * Created on 2018/3/15
  * @author tony
- * @date 2018/3/15
- * @descrition
  */
 public interface BookService {
 

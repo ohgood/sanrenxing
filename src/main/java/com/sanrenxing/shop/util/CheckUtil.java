@@ -4,7 +4,6 @@ import javax.servlet.http.HttpServletRequest;
 
 /**
  * Created on 2017/7/14.
- *
  * @author tony
  */
 public class CheckUtil {

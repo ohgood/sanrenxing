@@ -2,9 +2,7 @@ package com.sanrenxing.shop.exception;
 
 /**
  * 数据库连接异常
- *
  * Created on 2017/7/13.
- *
  * @author tony
  */
 public class DBConnectException extends RuntimeException {

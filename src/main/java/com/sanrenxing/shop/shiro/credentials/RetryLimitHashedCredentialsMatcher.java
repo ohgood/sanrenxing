@@ -11,7 +11,6 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * 登录次数验证， 防止穷举破解
- *
  * 10分钟内最多尝试登录10次
  */
 public class RetryLimitHashedCredentialsMatcher extends HashedCredentialsMatcher {

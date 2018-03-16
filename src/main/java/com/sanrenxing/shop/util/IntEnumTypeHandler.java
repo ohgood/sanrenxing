@@ -10,7 +10,6 @@ import java.sql.SQLException;
 
 /**
  * Created on 2016/12/19
- *
  * @author annpeter.it@gmail.com
  */
 public class IntEnumTypeHandler<E extends Enum<E> & IntEnum<E>> extends BaseTypeHandler<IntEnum> {
