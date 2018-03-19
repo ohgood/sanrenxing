@@ -59,7 +59,6 @@ public class ResourceServiceImpl implements ResourceService {
         }
     }
 
-
     /**
      * 更新一个资源
      *

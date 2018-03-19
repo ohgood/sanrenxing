@@ -39,7 +39,7 @@ public class BookServiceImpl implements BookService{
     @Override
     public List<BookDTO> findAll() throws IllegalAccessException, InstantiationException, InvocationTargetException {
         List<BookPO> bookPOs = bookDao.findAll();
-        bookPOs.forEach(bookPO -> bookPO.setPicUrl(ossHelper.publicUrl(bookPO.getPicUrl())));
+        //bookPOs.forEach(bookPO -> bookPO.setPicUrl(ossHelper.publicUrl(bookPO.getPicUrl())));
         return BeanUtil.copyTo(bookPOs, BookDTO.class);
     }
 
