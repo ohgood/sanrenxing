@@ -26,7 +26,4 @@ public class SpringConfig {
         mapper.findAndRegisterModules();
         return mapper;
     }
-
-
-
 }

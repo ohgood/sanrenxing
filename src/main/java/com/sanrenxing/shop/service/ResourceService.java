@@ -1,6 +1,6 @@
 package com.sanrenxing.shop.service;
 
-import com.sanrenxing.shop.bean.ResourceBean;
+import com.sanrenxing.shop.controller.dto.ResourceDTO;
 import com.sanrenxing.shop.db.admin.bean.Resource;
 import com.sanrenxing.shop.util.PageList;
 
@@ -76,7 +76,7 @@ public interface ResourceService {
      * @param permissions 权限set
      * @return menus
      */
-    List<ResourceBean> findMenus(Set<String> permissions);
+    List<ResourceDTO> findMenus(Set<String> permissions);
 
     /**
      * 权限校验

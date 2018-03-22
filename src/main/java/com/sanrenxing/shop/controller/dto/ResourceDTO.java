@@ -1,4 +1,4 @@
-package com.sanrenxing.shop.bean;
+package com.sanrenxing.shop.controller.dto;
 
 import com.sanrenxing.shop.db.admin.bean.Resource;
 
@@ -9,7 +9,7 @@ import java.util.List;
  * Created on 2017/3/9.
  * @author tony
  */
-public class ResourceBean {
+public class ResourceDTO {
 
     private Resource resource;
 

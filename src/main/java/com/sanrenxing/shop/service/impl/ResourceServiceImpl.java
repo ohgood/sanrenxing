@@ -1,6 +1,6 @@
 package com.sanrenxing.shop.service.impl;
 
-import com.sanrenxing.shop.bean.ResourceBean;
+import com.sanrenxing.shop.controller.dto.ResourceDTO;
 import com.sanrenxing.shop.db.admin.bean.Resource;
 import com.sanrenxing.shop.db.admin.dao.ResourceDao;
 import com.sanrenxing.shop.service.ResourceService;
@@ -151,18 +151,18 @@ public class ResourceServiceImpl implements ResourceService {
      * @return menus
      */
     @Override
-    public List<ResourceBean> findMenus(Set<String> permissions) {
+    public List<ResourceDTO> findMenus(Set<String> permissions) {
         List<Resource> allResources = findAll();
-        List<ResourceBean> menus = new ArrayList<>();
+        List<ResourceDTO> menus = new ArrayList<>();
         allResources.stream().filter(a -> hasPermission(permissions, a) && Objects.equals(a.getType(), 0))
                 .forEach(b -> {
-                    ResourceBean bean = new ResourceBean();
+                    ResourceDTO bean = new ResourceDTO();
                     bean.setResource(b);
                     menus.add(bean);
                 });
         allResources.stream().filter(a -> hasPermission(permissions, a) && Objects.equals(a.getType(), 1))
                 .forEach(b -> {
-                    for(ResourceBean bean : menus) {
+                    for(ResourceDTO bean : menus) {
                         if (Objects.equals(bean.getResource().getId(), b.getParentId())) {
                             bean.addChildResource(b);
                             break;

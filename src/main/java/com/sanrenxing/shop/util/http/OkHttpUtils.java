@@ -1,4 +1,4 @@
-package com.sanrenxing.shop.util;
+package com.sanrenxing.shop.util.http;
 
 import okhttp3.OkHttpClient;
 

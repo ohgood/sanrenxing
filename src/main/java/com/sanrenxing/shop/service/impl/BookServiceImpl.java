@@ -5,7 +5,7 @@ import com.sanrenxing.shop.db.shop.bean.BookPO;
 import com.sanrenxing.shop.db.shop.dao.BookDao;
 import com.sanrenxing.shop.service.BookService;
 import com.sanrenxing.shop.util.BeanUtil;
-import com.sanrenxing.shop.util.OSSHelper;
+import com.sanrenxing.shop.util.oss.OSSHelper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

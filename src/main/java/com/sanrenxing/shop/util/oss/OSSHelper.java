@@ -1,4 +1,4 @@
-package com.sanrenxing.shop.util;
+package com.sanrenxing.shop.util.oss;
 
 import com.google.gson.Gson;
 import com.qiniu.common.QiniuException;
@@ -21,6 +21,8 @@ import java.net.URLEncoder;
  * @author tony
  */
 public class OSSHelper {
+
+    String domainOfBucket = "http://7xpm82.com1.z0.glb.clouddn.com";
 
     private Auth auth;
 
@@ -48,7 +50,7 @@ public class OSSHelper {
 
     //获取私有空间链接
     public String publicUrl(String key) {
-        String domainOfBucket = "http://7xpm82.com1.z0.glb.clouddn.com";
+
         String encodedFileName = null;
         try {
             encodedFileName = URLEncoder.encode(key, "utf-8");
@@ -73,6 +75,5 @@ public class OSSHelper {
         }
         return true;
     }
-
 
 }

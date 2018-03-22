@@ -175,6 +175,20 @@
             <version>[7.2.0, 7.2.99]</version>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/com.github.1991wangliang/alipay-sdk -->
+        <dependency>
+            <groupId>com.github.1991wangliang</groupId>
+            <artifactId>alipay-sdk</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/com.google.zxing/core -->
+        <dependency>
+            <groupId>com.google.zxing</groupId>
+            <artifactId>core</artifactId>
+            <version>3.3.2</version>
+        </dependency>
+
     </dependencies>
 
     <build>
@@ -237,7 +251,6 @@
                 </configuration>
             </plugin>
         </plugins>
-
     </build>
 
     <repositories>

@@ -1,6 +1,6 @@
 package com.sanrenxing.shop.config;
 
-import com.sanrenxing.shop.util.OSSHelper;
+import com.sanrenxing.shop.util.oss.OSSHelper;
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
