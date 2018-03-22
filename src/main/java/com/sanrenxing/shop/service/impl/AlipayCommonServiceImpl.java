@@ -47,6 +47,7 @@ public class AlipayCommonServiceImpl implements AlipayCommonService{
     @Autowired
     private static AlipayMonitorServiceImpl monitorService;
 
+    // 测试当面付2.0生成支付二维码
     @Override
     public void test_trade_precreate() throws Exception {
         // (必填) 商户网站订单系统中唯一订单号，64个字符以内，只能包含字母、数字、下划线，

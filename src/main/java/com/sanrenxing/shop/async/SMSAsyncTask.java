@@ -16,7 +16,7 @@ public class SMSAsyncTask {
      * @param pwd      密码
      */
     @Async
-    public void sendMessage (String contact, String pwd) {
+    public void sendMessage(String contact, String pwd) {
         //SMSUtil.getRequest2(contact, pwd);
     }
 }
