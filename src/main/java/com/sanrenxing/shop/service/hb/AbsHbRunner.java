@@ -1,7 +1,7 @@
 package com.sanrenxing.shop.service.hb;
 
 import com.alipay.api.response.MonitorHeartbeatSynResponse;
-import com.sanrenxing.shop.db.Alipay;
+import com.sanrenxing.shop.model.Alipay;
 import com.sanrenxing.shop.model.builder.AlipayHeartbeatSynRequestBuilder;
 import com.sanrenxing.shop.service.AlipayMonitorService;
 import org.apache.commons.lang.StringUtils;
@@ -14,7 +14,8 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
 /**
- * Created by liuyangkly on 15/10/23.
+ * Created on 18/3/2.
+ * @author tony
  */
 public abstract class AbsHbRunner implements Runnable {
     protected Log log = LogFactory.getLog(getClass());

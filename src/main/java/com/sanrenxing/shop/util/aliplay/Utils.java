@@ -8,7 +8,6 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * Created by liuyangkly on 15/6/27.
  * 杂物工具类
  */
 public class Utils {

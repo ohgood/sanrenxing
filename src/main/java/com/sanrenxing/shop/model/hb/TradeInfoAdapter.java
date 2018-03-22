@@ -11,7 +11,8 @@ import java.lang.reflect.Type;
 import java.util.List;
 
 /**
- * Created by liuyangkly on 15/9/28.
+ * Created on 18/3/2.
+ * @author tony
  */
 public class TradeInfoAdapter implements JsonSerializer<List<TradeInfo>> {
     @Override

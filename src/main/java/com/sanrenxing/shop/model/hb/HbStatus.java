@@ -1,7 +1,8 @@
 package com.sanrenxing.shop.model.hb;
 
 /**
- * Created by liuyangkly on 15/8/27.
+ * Created on 18/3/2.
+ * @author tony
  */
 public enum HbStatus {
      S // 交易成功（包括支付宝返回“处理中”）

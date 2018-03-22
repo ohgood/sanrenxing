@@ -9,7 +9,6 @@ import java.lang.reflect.Type;
 import java.util.List;
 
 /**
- * Created by liuyangkly on 15/6/26.
  * 使用google gson作为json序列化反序列化工具
  */
 public class GsonFactory {

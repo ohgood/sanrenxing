@@ -4,7 +4,7 @@ import com.alipay.api.DefaultAlipayClient;
 import com.alipay.api.request.AlipayTradePayRequest;
 import com.alipay.api.response.AlipayTradePayResponse;
 import com.alipay.api.response.AlipayTradeQueryResponse;
-import com.sanrenxing.shop.db.Alipay;
+import com.sanrenxing.shop.model.Alipay;
 import com.sanrenxing.shop.model.TradeStatus;
 import com.sanrenxing.shop.model.builder.AlipayTradePayRequestBuilder;
 import com.sanrenxing.shop.model.builder.AlipayTradeQueryRequestBuilder;
@@ -16,10 +16,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
- * Created by liuyangkly on 15/7/29.
- *
- *  一定要在创建AlipayTradeService之前调用Configs.init("xxxxxx");设置参数
- *
+ * Created on 18/3/2.
+ * @author tony
  */
 @Service
 public class AlipayTradeServiceImpl extends AbsAlipayTradeService {

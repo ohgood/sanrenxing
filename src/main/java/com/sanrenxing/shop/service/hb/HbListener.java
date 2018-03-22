@@ -6,7 +6,8 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 /**
- * Created by liuyangkly on 15/10/28.
+ * Created on 18/3/2.
+ * @author tony
  */
 public class HbListener implements TradeListener {
     private static Log log = LogFactory.getLog(HbListener.class);

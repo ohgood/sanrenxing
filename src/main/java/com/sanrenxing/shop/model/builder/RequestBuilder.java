@@ -3,7 +3,8 @@ package com.sanrenxing.shop.model.builder;
 import com.sanrenxing.shop.util.aliplay.GsonFactory;
 
 /**
- * Created by liuyangkly on 15/7/31.
+ * Created on 18/3/2.
+ * @author tony
  */
 public abstract class RequestBuilder {
     private String appAuthToken;

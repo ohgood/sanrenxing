@@ -1,7 +1,8 @@
 package com.sanrenxing.shop.service.hb;
 
 /**
- * Created by liuyangkly on 15/10/27.
+ * Created on 18/3/2.
+ * @author tony
  */
 public interface TradeListener {
 

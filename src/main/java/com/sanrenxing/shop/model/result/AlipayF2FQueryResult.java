@@ -4,7 +4,8 @@ import com.alipay.api.response.AlipayTradeQueryResponse;
 import com.sanrenxing.shop.model.TradeStatus;
 
 /**
- * Created by liuyangkly on 15/8/27.
+ * Created on 18/3/2.
+ * @author tony
  */
 public class AlipayF2FQueryResult implements Result {
     private TradeStatus tradeStatus;

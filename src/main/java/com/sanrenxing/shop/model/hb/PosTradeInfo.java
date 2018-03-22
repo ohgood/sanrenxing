@@ -1,9 +1,11 @@
 package com.sanrenxing.shop.model.hb;
 
 /**
- * Created by liuyangkly on 15/9/28.
+ * Created on 18/3/2.
+ * @author tony
  */
 public class PosTradeInfo implements TradeInfo {
+
     private HbStatus status;
     private String time;
     private int timeConsume;

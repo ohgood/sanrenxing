@@ -1,4 +1,4 @@
-package com.sanrenxing.shop.db;
+package com.sanrenxing.shop.model;
 
 import lombok.Data;
 

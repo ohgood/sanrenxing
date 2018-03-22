@@ -7,7 +7,7 @@ import com.alipay.api.request.AlipayTradePrecreateRequest;
 import com.alipay.api.request.AlipayTradeQueryRequest;
 import com.alipay.api.request.AlipayTradeRefundRequest;
 import com.alipay.api.response.*;
-import com.sanrenxing.shop.db.Alipay;
+import com.sanrenxing.shop.model.Alipay;
 import com.sanrenxing.shop.model.TradeStatus;
 import com.sanrenxing.shop.model.builder.AlipayTradeCancelRequestBuilder;
 import com.sanrenxing.shop.model.builder.AlipayTradePrecreateRequestBuilder;
@@ -26,8 +26,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+
 /**
- * Created by liuyangkly on 15/10/28.
+ * Created on 18/3/2.
+ * @author tony
  */
 abstract class AbsAlipayTradeService extends AbsAlipayService implements AlipayTradeService {
     protected static ExecutorService executorService = Executors.newCachedThreadPool();

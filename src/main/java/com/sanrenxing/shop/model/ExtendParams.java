@@ -3,8 +3,8 @@ package com.sanrenxing.shop.model;
 import com.google.gson.annotations.SerializedName;
 
 /**
- * Created by liuyangkly on 15/6/26.
- * 扩展信息
+ * Created on 18/3/2.
+ * @author tony
  */
 public class ExtendParams {
     // 系统商编号

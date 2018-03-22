@@ -9,7 +9,8 @@ import java.util.List;
 import java.util.regex.Pattern;
 
 /**
- * Created by liuyangkly on 16/3/3.
+ * Created on 18/3/2.
+ * @author tony
  */
 public class AlipayTradePayRequestBuilder extends RequestBuilder {
 

@@ -3,7 +3,8 @@ package com.sanrenxing.shop.model.hb;
 import com.google.gson.annotations.SerializedName;
 
 /**
- * Created by liuyangkly on 15/8/27.
+ * Created on 18/3/2.
+ * @author tony
  */
 public class SysTradeInfo implements TradeInfo {
     @SerializedName("OTN")

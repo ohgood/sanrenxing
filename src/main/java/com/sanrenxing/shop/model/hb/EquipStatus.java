@@ -1,7 +1,8 @@
 package com.sanrenxing.shop.model.hb;
 
 /**
- * Created by liuyangkly on 15/8/27.
+ * Created on 18/3/2.
+ * @author tony
  */
 public enum EquipStatus {
     ON("10")    // 开机

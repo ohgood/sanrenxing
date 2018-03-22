@@ -1,6 +1,6 @@
 package com.sanrenxing.shop.config;
 
-import com.sanrenxing.shop.db.Alipay;
+import com.sanrenxing.shop.model.Alipay;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

@@ -4,7 +4,8 @@ import com.google.gson.annotations.SerializedName;
 import org.apache.commons.lang.StringUtils;
 
 /**
- * Created by liuyangkly on 16/3/3.
+ * Created on 18/3/2.
+ * @author tony
  */
 public class AlipayTradeCancelRequestBuilder extends RequestBuilder {
 

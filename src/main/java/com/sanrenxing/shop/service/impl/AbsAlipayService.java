@@ -9,7 +9,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * Created by liuyangkly on 15/10/22.
+ * Created on 18/3/2.
+ * @author tony
  */
 abstract class AbsAlipayService {
     protected Logger logger = LoggerFactory.getLogger(getClass());

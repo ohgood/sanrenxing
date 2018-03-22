@@ -7,6 +7,7 @@ import com.sanrenxing.shop.model.TradeStatus;
  * Created by liuyangkly on 15/8/27.
  */
 public class AlipayF2FPrecreateResult implements Result {
+    
     private TradeStatus tradeStatus;
     private AlipayTradePrecreateResponse response;
 

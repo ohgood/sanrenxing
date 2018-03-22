@@ -1,7 +1,8 @@
 package com.sanrenxing.shop.model;
 
 /**
- * Created by liuyangkly on 15/8/29.
+ * Created on 18/3/2.
+ * @author tony
  */
 public enum TradeStatus {
     SUCCESS  // 业务交易明确成功，比如支付成功、退货成功

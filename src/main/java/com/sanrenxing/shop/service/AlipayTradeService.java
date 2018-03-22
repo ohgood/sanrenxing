@@ -10,7 +10,8 @@ import com.sanrenxing.shop.model.result.AlipayF2FQueryResult;
 import com.sanrenxing.shop.model.result.AlipayF2FRefundResult;
 
 /**
- * Created by liuyangkly on 15/7/29.
+ * Created on 18/3/2.
+ * @author tony
  */
 public interface AlipayTradeService {
 

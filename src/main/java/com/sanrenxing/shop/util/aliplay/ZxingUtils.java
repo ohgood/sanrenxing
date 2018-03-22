@@ -16,7 +16,6 @@ import java.util.Hashtable;
 import java.util.Map;
 
 /**
- * Created by liuyangkly on 15/6/27.
  * 使用了google zxing作为二维码生成工具
  */
 public class ZxingUtils {

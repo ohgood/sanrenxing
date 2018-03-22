@@ -10,8 +10,8 @@ import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
 
 /**
- * Created by liuyangkly on 15/10/23.
- private List<BlockingQueue<E>> concurrentQueueList = Collections.synchronizedList(queueList);
+ * Created on 18/3/2.
+ * @author tony
  */
 public class HbQueue {
     private static Log log = LogFactory.getLog(HbQueue.class);

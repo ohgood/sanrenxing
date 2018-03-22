@@ -8,7 +8,8 @@ import org.apache.commons.lang.StringUtils;
 import java.util.List;
 
 /**
- * Created by liuyangkly on 16/3/3.
+ * Created on 18/3/2.
+ * @author tony
  */
 public class AlipayTradePrecreateRequestBuilder extends RequestBuilder {
 

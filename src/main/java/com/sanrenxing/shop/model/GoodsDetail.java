@@ -4,8 +4,9 @@ import com.google.gson.annotations.SerializedName;
 import com.sanrenxing.shop.util.aliplay.Utils;
 
 /**
- * Created by liuyangkly on 15/6/26.
  * 商品明细
+ * Created on 18/3/2.
+ * @author tony
  */
 public class GoodsDetail {
     // 商品编号(国标)

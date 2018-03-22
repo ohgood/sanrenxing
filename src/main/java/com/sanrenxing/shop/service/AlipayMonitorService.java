@@ -5,7 +5,8 @@ import com.alipay.api.response.MonitorHeartbeatSynResponse;
 import com.sanrenxing.shop.model.builder.AlipayHeartbeatSynRequestBuilder;
 
 /**
- * Created by liuyangkly on 15/10/22.
+ * Created on 18/3/2.
+ * @author tony
  */
 public interface AlipayMonitorService {
 

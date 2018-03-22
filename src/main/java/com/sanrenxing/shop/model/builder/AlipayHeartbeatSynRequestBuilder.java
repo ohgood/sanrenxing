@@ -10,7 +10,8 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Created by liuyangkly on 16/3/2.
+ * Created on 18/3/2.
+ * @author tony
  */
 public class AlipayHeartbeatSynRequestBuilder extends RequestBuilder {
 

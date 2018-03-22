@@ -1,7 +1,8 @@
 package com.sanrenxing.shop.model.hb;
 
 /**
- * Created by liuyangkly on 15/9/28.
+ * Created on 18/3/2.
+ * @author tony
  */
 public interface TradeInfo {
     // 获取交易状态
