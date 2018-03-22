@@ -27,6 +27,7 @@ import java.net.SocketTimeoutException;
  */
 @Service
 public class AlipayTradeWithHBServiceImpl extends AbsAlipayTradeService {
+
     private TradeListener listener;
 
     private Logger logger = LoggerFactory.getLogger(AlipayTradeWithHBServiceImpl.class);

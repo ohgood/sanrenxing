@@ -32,6 +32,7 @@ import java.util.concurrent.Executors;
  * @author tony
  */
 abstract class AbsAlipayTradeService extends AbsAlipayService implements AlipayTradeService {
+
     protected static ExecutorService executorService = Executors.newCachedThreadPool();
     protected AlipayClient client;
 
