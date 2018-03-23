@@ -7,6 +7,10 @@ spring:
     add-mappings: false
   jackson:
     date-format: yyyy-MM-dd HH:mm:ss
+  redis:
+    host: 116.196.80.176
+    timeout: 100
+    port: 6379
 datasource:
   shop:
     jdbcUrl: jdbc:mysql://116.196.80.176:3306/shop?useUnicode=true&amp;characterEncoding=utf-

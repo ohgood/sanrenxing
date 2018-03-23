@@ -76,4 +76,15 @@ public class UserController {
             return new SRXResponse(SRXResponse.Status.FAILURE);
     }
 
+
+    /**
+     * 根据用户名查找用户
+     * @param username 用户名称
+     * @return 用户对象
+     */
+    @RequestMapping("/findByUsername")
+    public SRXResponse findByUsername(String username) {
+        return new SRXResponse(SRXResponse.Status.SUCCESS).result(userService.findByUsername(username));
+    }
+
 }

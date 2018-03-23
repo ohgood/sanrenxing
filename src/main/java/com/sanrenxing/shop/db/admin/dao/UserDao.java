@@ -3,8 +3,11 @@ package com.sanrenxing.shop.db.admin.dao;
 import com.github.pagehelper.PageHelper;
 import com.sanrenxing.shop.db.admin.bean.User;
 import com.sanrenxing.shop.db.admin.mapper.UserMapper;
+import com.sanrenxing.shop.helper.RedisConnector;
 import com.sanrenxing.shop.util.PageList;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.connection.RedisConnection;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -18,6 +21,9 @@ public class UserDao {
 
     @Autowired
     private UserMapper userMapper;
+
+    @Autowired
+    private RedisConnector redisConnector;
 
     public int createUser(User user) {
         return userMapper.createUser(user);
@@ -54,7 +60,12 @@ public class UserDao {
     }
 
     public User findByUsername(String username) {
-        return userMapper.findByUsername(username);
+        User user = userMapper.findByUsername(username);
+
+        redisConnector.set(username, username);
+
+        System.out.println("========================" + redisConnector.get(username));
+        return user;
     }
 
     public List<User> getUsers (Integer roleId) {
