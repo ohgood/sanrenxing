@@ -3,7 +3,6 @@ package com.sanrenxing.shop.helper;
 import com.sanrenxing.shop.db.admin.bean.User;
 import com.sanrenxing.shop.db.admin.mapper.UserMapper;
 import com.sanrenxing.shop.util.SerializeUtil;
-import org.apache.commons.lang.StringUtils;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.JedisPoolConfig;

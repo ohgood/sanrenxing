@@ -98,6 +98,7 @@ public class UserServiceImpl implements UserService {
      */
     @Override
     public boolean lockUser(Integer userId, Boolean locked) {
+
         User user = userDao.findOne(userId);
         if(user != null) {
             user.setLocked(locked);
