@@ -14,9 +14,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.*;
 
 /**
  *
@@ -27,8 +25,6 @@ import java.util.concurrent.*;
 public class BookServiceImpl implements BookService{
 
     private final Logger logger = LoggerFactory.getLogger(BookServiceImpl.class);
-
-    private ExecutorService executorService = Executors.newFixedThreadPool(10);
 
     @Autowired
     private BookDao bookDao;
@@ -42,25 +38,6 @@ public class BookServiceImpl implements BookService{
      */
     @Override
     public List<BookDTO> findAll() throws IllegalAccessException, InstantiationException, InvocationTargetException {
-        //多线程执行
-        Callable<String> callable = new Callable<String>() {
-            @Override
-            public String call() throws Exception {
-                return null;
-            }
-        };
-        Future future = executorService.submit(callable);
-        try {
-            if (future.get().equals("result")) {
-                System.out.println("todo....");
-            }
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-            return new ArrayList<>();
-        } catch (ExecutionException e) {
-            e.printStackTrace();
-            return new ArrayList<>();
-        }
         List<BookPO> bookPOs = bookDao.findAll();
         //bookPOs.forEach(bookPO -> bookPO.setPicUrl(ossHelper.publicUrl(bookPO.getPicUrl())));
         return BeanUtil.copyTo(bookPOs, BookDTO.class);
