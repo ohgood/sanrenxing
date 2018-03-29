@@ -1,5 +1,7 @@
 package com.sanrenxing.shop.helper;
 
+import com.sanrenxing.shop.db.admin.mapper.UserMapper;
+import org.apache.commons.lang.StringUtils;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.JedisPoolConfig;
@@ -13,6 +15,8 @@ public class RedisConnector {
 
     private JedisPool jedisPool;
 
+    private UserMapper userMapper;
+
     public RedisConnector(String host, int port, int timeout) {
         JedisPoolConfig poolConfig = new JedisPoolConfig();
         jedisPool = new JedisPool(poolConfig, host, port, timeout);
@@ -24,10 +28,24 @@ public class RedisConnector {
         }
     }
 
+    /**
+     * 防止缓存击穿
+     * @param key
+     * @return
+     */
     public String get(String key) {
         String value;
         try (Jedis jedis = jedisPool.getResource()) {
             value = jedis.get(key);
+            if (StringUtils.isBlank(value)) {
+                this.set(key, value);
+                if (userMapper.findByUsername(key) == null) {
+                    jedis.expire(key, 60 * 5);
+                }
+
+            } else {
+                return value;
+            }
         }
         return value;
     }

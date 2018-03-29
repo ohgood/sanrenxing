@@ -9,7 +9,7 @@ spring:
     date-format: yyyy-MM-dd HH:mm:ss
   redis:
     host: 116.196.80.176
-    timeout: 100
+    timeout: 100000
     port: 6379
 datasource:
   shop:

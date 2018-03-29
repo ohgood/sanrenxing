@@ -6,8 +6,6 @@ import com.sanrenxing.shop.db.admin.mapper.UserMapper;
 import com.sanrenxing.shop.helper.RedisConnector;
 import com.sanrenxing.shop.util.PageList;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.redis.connection.RedisConnection;
-import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
