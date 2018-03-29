@@ -13,18 +13,17 @@ spring:
     port: 6379
 datasource:
   shop:
-    jdbcUrl: jdbc:mysql://116.196.80.176:3306/shop?useUnicode=true&amp;characterEncoding=utf-
+    jdbcUrl: jdbc:mysql://116.196.80.176:3306/shop?useUnicode=true&amp;characterEncoding=utf-8
     username: admin
     password: 123456
     maximumPoolSize: 20
   admin:
-    jdbcUrl: jdbc:mysql://116.196.80.176:3306/admin?useUnicode=true&amp;characterEncoding=utf-
+    jdbcUrl: jdbc:mysql://116.196.80.176:3306/admin?useUnicode=true&amp;characterEncoding=utf-8
     username: admin
     password: 123456
     maximumPoolSize: 20
 qiniuyun:
   oss:
-    #endpoint: oss-cn-hangzhou.aliyuncs.com
     accessKeyId: la0NkbDvpax3xHMXESivXgNK_spRHjvLtlcSGXdv
     accessKeySecret: Y1zxdAxunI02SzvjUAdZ9oeqN2MrteZFD4HDcWVZ
     bucketName: tonywu

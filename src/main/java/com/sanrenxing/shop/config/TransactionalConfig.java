@@ -45,7 +45,6 @@ public class TransactionalConfig {
         transactionAttributes.setProperty("upload*", "PROPAGATION_REQUIRED,-Throwable");
         // 修改
         transactionAttributes.setProperty("update*", "PROPAGATION_REQUIRED,-Throwable");
-        transactionAttributes.setProperty("pull*", "PROPAGATION_REQUIRED,-Throwable");
         // 删除
         transactionAttributes.setProperty("delete*", "PROPAGATION_REQUIRED,-Throwable");
 

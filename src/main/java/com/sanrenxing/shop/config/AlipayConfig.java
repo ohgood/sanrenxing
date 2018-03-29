@@ -13,7 +13,7 @@ import org.springframework.context.annotation.Configuration;
 public class AlipayConfig {
 
     @Bean
-    @ConfigurationProperties(prefix = "Alipay")
+    @ConfigurationProperties(prefix = "alipay")
     public Alipay alipay() {
         return new Alipay();
     }
