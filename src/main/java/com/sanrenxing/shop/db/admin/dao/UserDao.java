@@ -38,8 +38,8 @@ public class UserDao {
 
     public User findOne(Integer userId) {
         User user = userMapper.findOne(userId);
-        redisConnector.set(userId.toString().getBytes(), SerializeUtil.serialize(user));
-        System.out.println(((User)SerializeUtil.deserialize(redisConnector.get(userId.toString().getBytes()))).getUsername() + "==================================================================");
+        redisConnector.set(userId.toString(), user);
+        System.out.println(((User) redisConnector.get(userId.toString())).getUsername() + "==================================================================");
         return user;
     }
 

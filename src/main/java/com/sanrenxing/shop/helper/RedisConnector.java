@@ -32,9 +32,15 @@ public class RedisConnector {
         jedis = jedisPool.getResource();
     }
 
-    public void set(byte[] key, byte[] value) {
+    public void set(String key, User value) {
 
-        jedis.set(key, value);
+        jedis.set(key.getBytes(), SerializeUtil.serialize(value));
+
+    }
+
+    public void set(String key, byte[] value) {
+
+        jedis.set(key.getBytes(), value);
 
     }
 
@@ -43,17 +49,17 @@ public class RedisConnector {
      * @param key
      * @return
      */
-    public byte[] get(byte[] key) {
-        byte[] value = jedis.get(key);
+    public Object get(String key) {
+        byte[] value = jedis.get(key.getBytes());
         if (value.length == 0) {
             this.set(key, value);
-            if (userMapper.findOne((Integer) SerializeUtil.deserialize(key)) == null) {
+            if (userMapper.findOne(Integer.parseInt(key)) == null) {
                 jedis.expire(key, 60 * 5);
             }
         } else {
-            return value;
+            return SerializeUtil.deserialize(value);
         }
-        return value;
+        return SerializeUtil.deserialize(value);
     }
 
     /**

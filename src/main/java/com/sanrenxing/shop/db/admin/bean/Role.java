@@ -19,9 +19,7 @@ import java.util.Set;
 @Table("sys_role")
 public class Role {
 
-
     private Integer id; //编号
-
 
     @NotNull(message = "角色名称不可空", groups = {Create.class})
     @Pattern(regexp = "^[\\u4e00-\\u9fa5]{2,4}$", message = "昵称为2到4位中文", groups = {Create.class, Update.class})

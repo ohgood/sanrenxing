@@ -17,7 +17,8 @@ import java.util.stream.Stream;
 
 /**
  * Created on 2017/7/28.
- * @author tony
+ *
+ * @author xuwenjun
  */
 public class SqlProvider {
 
@@ -45,7 +46,7 @@ public class SqlProvider {
                     insertParaNames.add(getColumnName(field));
 
                     if (object instanceof Collection)
-                        insertParas.add("#{" + field.getName() + ", typeHandler=SetTypeHandler}");
+                        insertParas.add("#{" + field.getName() + ", typeHandler=com.sanrenxing.shop.util.SetTypeHandler}");
                     else
                         insertParas.add("#{" + field.getName() + "}");
                 }
@@ -94,7 +95,7 @@ public class SqlProvider {
                         updateSql.append(", ");
                     }
                     if (beanValue instanceof Collection)
-                        updateSql.append(columnName).append("=#{").append(field.getName()).append(", typeHandler=SetTypeHandler}");
+                        updateSql.append(columnName).append("=#{").append(field.getName()).append(", typeHandler=com.sanrenxing.shop.util.SetTypeHandler}");
                     else
                         updateSql.append(columnName).append("=#{").append(field.getName()).append("}");
                 }
