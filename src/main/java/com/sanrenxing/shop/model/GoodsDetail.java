@@ -9,6 +9,7 @@ import com.sanrenxing.shop.util.aliplay.Utils;
  * @author tony
  */
 public class GoodsDetail {
+
     // 商品编号(国标)
     @SerializedName("goods_id")
     private String goodsId;

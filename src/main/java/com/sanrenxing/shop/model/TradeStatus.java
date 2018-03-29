@@ -5,6 +5,7 @@ package com.sanrenxing.shop.model;
  * @author tony
  */
 public enum TradeStatus {
+
     SUCCESS  // 业务交易明确成功，比如支付成功、退货成功
 
     ,FAILED  // 业务交易明确失败，比如支付明确失败、退货明确失败

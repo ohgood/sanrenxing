@@ -38,7 +38,6 @@ public class AlipayCommonServiceImpl implements AlipayCommonService{
     @Autowired
     private AlipayTradeServiceImpl tradeService;
 
-
     // 支付宝当面付2.0服务（集成了交易保障接口逻辑）
     @Autowired
     private static AlipayTradeWithHBServiceImpl tradeWithHBService;

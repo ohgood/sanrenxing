@@ -5,6 +5,7 @@ import com.sanrenxing.shop.db.admin.bean.User;
 import com.sanrenxing.shop.db.admin.mapper.UserMapper;
 import com.sanrenxing.shop.helper.RedisConnector;
 import com.sanrenxing.shop.util.PageList;
+import com.sanrenxing.shop.util.SerializeUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -36,7 +37,10 @@ public class UserDao {
     }
 
     public User findOne(Integer userId) {
-        return userMapper.findOne(userId);
+        User user = userMapper.findOne(userId);
+        redisConnector.set(userId.toString().getBytes(), SerializeUtil.serialize(user));
+        System.out.println(((User)SerializeUtil.deserialize(redisConnector.get(userId.toString().getBytes()))).getUsername() + "==================================================================");
+        return user;
     }
 
     /**
@@ -58,12 +62,7 @@ public class UserDao {
     }
 
     public User findByUsername(String username) {
-        User user = userMapper.findByUsername(username);
-
-        redisConnector.set(username, username);
-
-        System.out.println("========================" + redisConnector.get(username));
-        return user;
+        return userMapper.findByUsername(username);
     }
 
     public List<User> getUsers (Integer roleId) {

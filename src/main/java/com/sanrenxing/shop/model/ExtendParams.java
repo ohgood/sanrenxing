@@ -7,6 +7,7 @@ import com.google.gson.annotations.SerializedName;
  * @author tony
  */
 public class ExtendParams {
+
     // 系统商编号
     @SerializedName("sys_service_provider_id")
     private String sysServiceProviderId;

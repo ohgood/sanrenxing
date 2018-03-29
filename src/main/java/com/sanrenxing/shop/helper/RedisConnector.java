@@ -1,6 +1,8 @@
 package com.sanrenxing.shop.helper;
 
+import com.sanrenxing.shop.db.admin.bean.User;
 import com.sanrenxing.shop.db.admin.mapper.UserMapper;
+import com.sanrenxing.shop.util.SerializeUtil;
 import org.apache.commons.lang.StringUtils;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
@@ -20,17 +22,20 @@ public class RedisConnector {
 
     private UserMapper userMapper;
 
-    private Jedis jedis = jedisPool.getResource();
+    private Jedis jedis;
 
     private ExecutorService executorService = Executors.newFixedThreadPool(10);
 
     public RedisConnector(String host, int port, int timeout) {
         JedisPoolConfig poolConfig = new JedisPoolConfig();
         jedisPool = new JedisPool(poolConfig, host, port, timeout);
+        jedis = jedisPool.getResource();
     }
 
-    public void set(String key, String value) {
+    public void set(byte[] key, byte[] value) {
+
         jedis.set(key, value);
+
     }
 
     /**
@@ -38,14 +43,13 @@ public class RedisConnector {
      * @param key
      * @return
      */
-    public String get(String key) {
-        String value = jedis.get(key);
-        if (StringUtils.isBlank(value)) {
+    public byte[] get(byte[] key) {
+        byte[] value = jedis.get(key);
+        if (value.length == 0) {
             this.set(key, value);
-            if (userMapper.findByUsername(key) == null) {
+            if (userMapper.findOne((Integer) SerializeUtil.deserialize(key)) == null) {
                 jedis.expire(key, 60 * 5);
             }
-
         } else {
             return value;
         }
