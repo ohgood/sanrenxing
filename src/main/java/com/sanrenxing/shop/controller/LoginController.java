@@ -78,18 +78,15 @@ public class LoginController {
 
     @RequestMapping(value = "/register")
     public SRXResponse ajaxRegister(@NotEmpty @Pattern(regexp = "^1[3|4|5|7|8][0-9]{9}$", message = "请输入正确的手机号")
-                                 @RequestParam("username") String username,
+                                    @RequestParam("username") String username,
                                     @NotEmpty @Pattern(regexp = "^(?![0-9]+$)(?![a-zA-Z]+$)[0-9a-zA-Z_]{6,32}$", message = "密码为6到32位字母数字下划线组合，必须包含字母数字")
-                                 @RequestParam("password") String password,
+                                    @RequestParam("password") String password,
                                     @NotEmpty  @Pattern(regexp = "^[\\u4e00-\\u9fa5]{2,10}$", message = "真实姓名为2到10位中文")
-                                 @RequestParam("realname") String realName,
-                                    @NotEmpty  @Pattern(regexp = "^[\\u4e00-\\u9fa5]{2,4}$", message = "昵称为2到4位中文")
-                                 @RequestParam("nickname") String nickName) throws Exception {
+                                    @RequestParam("realname") String realName) throws Exception {
         User user = new User();
         user.setUsername(username);
         user.setPassword(password);
         user.setRealName(realName);
-        user.setNickName(nickName);
         if (userService.createUser(user) == 1) {
             return new SRXResponse(SRXResponse.Status.SUCCESS);
         } else {

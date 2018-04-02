@@ -77,7 +77,7 @@ public interface UserMapper {
      * @param username 用户名称
      * @return 用户
      */
-    @Select("SELECT * FROM sys_user WHERE username = #{username}")
+    @Select("SELECT id, username, password, real_name, role_ids, salt, locked FROM sys_user WHERE username = #{username}")
     @Results(value = {
             @Result(column = "role_ids", property = "roleIds", typeHandler = SetTypeHandler.class)
     })

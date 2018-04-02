@@ -79,7 +79,6 @@ public class UserServiceImpl implements UserService {
         if(user != null) {
             user.setUsername(username);
             user.setRealName(realName);
-            user.setNickName(nickName);
             user.setRoleIds(roleIds);
             if (!Objects.equals(password, "")) {
                 user.setPassword(password);
@@ -167,7 +166,6 @@ public class UserServiceImpl implements UserService {
         users.forEach(user -> user.setRoles(StringUtil.join(findRoles(user.getUsername()), ",")));
         return users;
     }
-
 
     /**
      * 删除所有拥有指定角色的用户的该角色

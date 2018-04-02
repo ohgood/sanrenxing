@@ -3,6 +3,7 @@ package com.sanrenxing.shop.helper;
 import com.sanrenxing.shop.db.admin.bean.User;
 import com.sanrenxing.shop.db.admin.mapper.UserMapper;
 import com.sanrenxing.shop.util.SerializeUtil;
+import org.springframework.beans.factory.annotation.Autowired;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.JedisPoolConfig;
@@ -19,6 +20,7 @@ public class RedisConnector {
 
     private JedisPool jedisPool;
 
+    @Autowired
     private UserMapper userMapper;
 
     private Jedis jedis;
@@ -49,6 +51,8 @@ public class RedisConnector {
      * @return
      */
     public Object get(String key) {
+        //jedis.hmset()
+        //jedis.lpush()
         byte[] value = jedis.get(key.getBytes());
         if (value.length == 0) {
             this.set(key, value);

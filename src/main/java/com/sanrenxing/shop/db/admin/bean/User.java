@@ -43,10 +43,6 @@ public class User implements Serializable {
     @Pattern(regexp = "^[\\u4e00-\\u9fa5]{2,10}$", message = "真实姓名为2到10位中文", groups = {Create.class, Update.class})
     private String realName;                   //用户真实姓名
 
-    @NotEmpty(groups = {Create.class})
-    @Pattern(regexp = "^[\\u4e00-\\u9fa5]{2,4}$", message = "昵称为2到4位中文", groups = {Create.class, Update.class})
-    private String nickName;                   //用户昵称
-
     private String salt;                       //随机密钥
 
     private Set<Integer> roleIds;              //拥有的角色列表
@@ -76,7 +72,6 @@ public class User implements Serializable {
             jGen.writeStartObject();
             jGen.writeStringField("username", user.username);
             jGen.writeStringField("realName", user.realName);
-            jGen.writeStringField("nickName", user.nickName);
             jGen.writeObjectField("roleIds", user.roleIds);
             jGen.writeBooleanField("locked", user.locked);
             jGen.writeEndObject();
