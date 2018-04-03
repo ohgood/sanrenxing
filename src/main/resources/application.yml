@@ -14,12 +14,12 @@ spring:
 datasource:
   shop:
     jdbcUrl: jdbc:mysql://116.196.80.176:3306/shop?useUnicode=true&amp;characterEncoding=utf-8
-    username: admin
+    username: root
     password: 123456
     maximumPoolSize: 20
   admin:
     jdbcUrl: jdbc:mysql://116.196.80.176:3306/admin?useUnicode=true&amp;characterEncoding=utf-8
-    username: admin
+    username: root
     password: 123456
     maximumPoolSize: 20
 qiniuyun:
