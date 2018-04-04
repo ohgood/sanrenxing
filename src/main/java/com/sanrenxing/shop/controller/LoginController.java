@@ -115,8 +115,7 @@ public class LoginController {
 
     @RequestMapping(value = "/get_resources", method = {RequestMethod.POST, RequestMethod.GET})
     public SRXResponse getUserResource() {
-        System.out.println(ShiroUtil.getUsername() + ".................");
-        List<ResourceDTO> resourceBeans = resourceService.findMenus(userService.findPermissions(ShiroUtil.getUsername()));
+        List<ResourceDTO> resourceBeans = resourceService.findMenus(userService.findPermissions("15251323101"));
         return new SRXResponse(SRXResponse.Status.SUCCESS).result(resourceBeans);
     }
 

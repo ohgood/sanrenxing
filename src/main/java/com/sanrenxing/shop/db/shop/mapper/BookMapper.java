@@ -17,7 +17,7 @@ public interface BookMapper {
      * 书籍查询接口
      * @return            查询到的书籍数据
      */
-    @Select("SELECT id, name, pic_url, description, add_time, update_time FROM book ORDER BY add_time")
+    @Select("SELECT id, name, pic_url, description, add_time, update_time FROM book WHERE state = 0 ORDER BY add_time")
     List<BookPO> findAll();
 
     /**

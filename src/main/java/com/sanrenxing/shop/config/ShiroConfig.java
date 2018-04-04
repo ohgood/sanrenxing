@@ -30,7 +30,8 @@ import java.util.Map;
 
 /**
  * Created on 2017/7/17.
- * @author tony
+ *
+ * @author xuwenjun
  */
 @Configuration
 @EnableTransactionManagement
@@ -79,7 +80,7 @@ public class ShiroConfig {
 
     @Bean
     public SimpleCookie sessionIdCookie() {
-        SimpleCookie simpleCookie = new SimpleCookie("sanrenxing.session.id");
+        SimpleCookie simpleCookie = new SimpleCookie("juhe.session.id");
         simpleCookie.setHttpOnly(true);
         simpleCookie.setMaxAge(-1);
         return simpleCookie;
@@ -133,7 +134,6 @@ public class ShiroConfig {
         return sessionManager;
     }
 
-
     /**
      * 安全管理器
      * @return  安全管理器
@@ -162,13 +162,14 @@ public class ShiroConfig {
         Map<String, Filter> map = new HashMap<>();
         map.put("sysUser", sysUserFilter);
         shiroFilterFactoryBean.setFilters(map);
-        shiroFilterFactoryBean.setFilterChainDefinitions("/logout = user\n" +
+        shiroFilterFactoryBean.setFilterChainDefinitions(
                 "/login = anon\n" +
                 "/register = anon\n" +
                 "/forbidden = anon\n" +
-                "/test/** = sysUser\n" +
-                "/ajax/** = sysUser\n" +
-                "/** = sysUser");
+                "/check = anon\n" +
+                "/rest/** = anon\n"
+//                "/** = user"
+                );
         return shiroFilterFactoryBean;
     }
 

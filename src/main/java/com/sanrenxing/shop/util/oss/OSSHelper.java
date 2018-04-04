@@ -22,7 +22,7 @@ import java.net.URLEncoder;
  */
 public class OSSHelper {
 
-    String domainOfBucket = "http://7xpm82.com1.z0.glb.clouddn.com";
+    String domainOfBucket = "http://p6n4s9kik.bkt.clouddn.com";
 
     private Auth auth;
 
