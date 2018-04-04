@@ -9,9 +9,9 @@ import java.util.List;
 
 /**
  * Created on 2017/2/27.
- * @author tony
+ *
+ * @author xuwenjun
  */
-@Mapper
 @Component
 public interface ResourceMapper {
 

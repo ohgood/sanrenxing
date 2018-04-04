@@ -1,5 +1,6 @@
 package com.sanrenxing.shop.service.impl;
 
+
 import com.sanrenxing.shop.db.admin.bean.Role;
 import com.sanrenxing.shop.db.admin.dao.RoleDao;
 import com.sanrenxing.shop.service.ResourceService;
@@ -8,24 +9,27 @@ import com.sanrenxing.shop.util.PageList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Arrays;
-import java.util.Objects;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 
 /**
  * 角色Service实现类
+ *
  * Created on 2017/2/16.
- * @author tony
+ *
+ * @author xuwenjun
  */
 @Service
 public class RoleServiceImpl implements RoleService {
 
-    @Autowired
-    private RoleDao roleDao;
+    private final RoleDao roleDao;
+    private final ResourceService resourceService;
 
     @Autowired
-    private ResourceService resourceService;
+    public RoleServiceImpl(RoleDao roleDao, ResourceService resourceService) {
+        this.roleDao = roleDao;
+        this.resourceService = resourceService;
+    }
 
     /**
      * 创建角色
@@ -56,6 +60,22 @@ public class RoleServiceImpl implements RoleService {
     public Set<String> findRoles(Integer... roleIds) {
         return Arrays.stream(roleIds).map(roleDao::findOne).filter(Objects::nonNull)
                 .map(Role::getRole).collect(Collectors.toSet());
+    }
+
+    /**
+     * 查询role名称和roleId
+     * @param roleIds    需要查询的roleIds
+     * @return     结果集
+     */
+    @Override
+    public Set<Map<String, Object>> findRoleMap(Integer... roleIds) {
+        return Arrays.stream(roleIds).map(roleDao::findOne).filter(Objects::nonNull)
+                .map(a -> {
+                    Map<String, Object> map = new HashMap<>();
+                    map.put("id", a.getId());
+                    map.put("name", a.getRole());
+                    return map;
+                }).collect(Collectors.toSet());
     }
 
     /**

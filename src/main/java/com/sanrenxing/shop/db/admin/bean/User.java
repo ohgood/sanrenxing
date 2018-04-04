@@ -12,14 +12,17 @@ import lombok.Data;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Null;
 import javax.validation.constraints.Pattern;
 import java.io.IOException;
 import java.io.Serializable;
+import java.util.Map;
 import java.util.Set;
 
 /**
  * Created on 2017/2/16.
- * @author tony
+ *
+ * @author xuwenjun
  */
 @JsonSerialize(using = User.CustomSerializer.class)
 @Data
@@ -43,14 +46,19 @@ public class User implements Serializable {
     @Pattern(regexp = "^[\\u4e00-\\u9fa5]{2,10}$", message = "真实姓名为2到10位中文", groups = {Create.class, Update.class})
     private String realName;                   //用户真实姓名
 
+    @NotEmpty(groups = {Create.class})
+    @Pattern(regexp = "^[\\u4e00-\\u9fa5]{2,4}$", message = "昵称为2到4位中文", groups = {Create.class, Update.class})
+    private String nickName;                   //用户昵称
+
     private String salt;                       //随机密钥
 
     private Set<Integer> roleIds;              //拥有的角色列表
 
-    private Boolean locked = Boolean.FALSE;    //是否锁定状态
-
     @Ignore
-    private String roles;                      //角色名称 如果用户有多个角色，名称用","分割开
+    @Null(groups = {Create.class, Update.class})
+    private Set<Map<String, Object>> roleList;
+
+    private Boolean locked;    //是否锁定状态
 
     public User() {
     }
@@ -64,18 +72,23 @@ public class User implements Serializable {
         return username + salt;
     }
 
+
+
     static class CustomSerializer extends JsonSerializer<User> {
 
         @Override
-        public void serialize(User user, JsonGenerator jGen, SerializerProvider provider)
+        public void serialize(User bean, JsonGenerator jGen, SerializerProvider provider)
                 throws IOException {
             jGen.writeStartObject();
-            jGen.writeStringField("username", user.username);
-            jGen.writeStringField("realName", user.realName);
-            jGen.writeObjectField("roleIds", user.roleIds);
-            jGen.writeBooleanField("locked", user.locked);
+            jGen.writeNumberField("id", bean.getId());
+            jGen.writeStringField("username", bean.getUsername());
+            jGen.writeStringField("realName", bean.getRealName());
+            jGen.writeStringField("nickName", bean.getNickName());
+            jGen.writeObjectField("roleList", bean.getRoleList());
+            jGen.writeBooleanField("locked", bean.getLocked());
             jGen.writeEndObject();
         }
+
     }
 
 }

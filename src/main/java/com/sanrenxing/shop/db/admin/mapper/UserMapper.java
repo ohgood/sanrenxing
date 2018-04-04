@@ -13,9 +13,9 @@ import java.util.List;
 
 /**
  * Created on 2017/2/24.
- * @author tony
+ *
+ * @author xuwenjun
  */
-@Mapper
 @Component
 public interface UserMapper {
 
@@ -37,7 +37,7 @@ public interface UserMapper {
      * 删除用户
      * @param userId 用户id
      */
-    @CacheEvict(value = "user", key = "'user:' + #userId")
+    @CacheEvict(value = "user", key="'user:' + #userId")
     @Delete("DELETE FROM sys_user WHERE id = #{userId}")
     int deleteUser(Integer userId);
 
@@ -46,10 +46,10 @@ public interface UserMapper {
      * @param userId 用户id
      * @return 用户
      */
-    @Cacheable(value = "user", key = "'user:' + #userId")
+    @Cacheable(value="user", key="'user:' + #userId")
     @Select("SELECT * FROM sys_user WHERE id = #{userId}")
     @Results(value = {
-    @Result(column = "role_ids", property = "roleIds", typeHandler = SetTypeHandler.class)
+            @Result(column = "role_ids", property = "roleIds", typeHandler = SetTypeHandler.class)
     })
     User findOne(Integer userId);
 
@@ -77,7 +77,7 @@ public interface UserMapper {
      * @param username 用户名称
      * @return 用户
      */
-    @Select("SELECT id, username, password, real_name, role_ids, salt, locked FROM sys_user WHERE username = #{username}")
+    @Select("SELECT * FROM sys_user WHERE username = #{username}")
     @Results(value = {
             @Result(column = "role_ids", property = "roleIds", typeHandler = SetTypeHandler.class)
     })
@@ -92,6 +92,15 @@ public interface UserMapper {
     @Results(value = {
             @Result(column = "role_ids", property = "roleIds", typeHandler = SetTypeHandler.class)
     })
-    List<User> getUsers(String roleId);
+    List<User> getUsers(@Param("roleId") Integer roleId);
+
+
+    @Select("SELECT `username` FROM `sys_user`")
+    List<String> getUsernameAll();
+
+
+    @SelectProvider(type = UserProvider.class, method = "getUsernames")
+    List<String> getUsernames(@Param("roleIds") List<String> roleIds);
+
 
 }

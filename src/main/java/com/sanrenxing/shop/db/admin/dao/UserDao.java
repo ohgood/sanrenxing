@@ -65,7 +65,7 @@ public class UserDao {
     }
 
     public List<User> getUsers (Integer roleId) {
-        return userMapper.getUsers(Integer.toString(roleId));
+        return userMapper.getUsers(roleId);
     }
 
     public void removeUserRole(Integer roleId) {

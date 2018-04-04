@@ -3,11 +3,13 @@ package com.sanrenxing.shop.service;
 import com.sanrenxing.shop.db.admin.bean.Role;
 import com.sanrenxing.shop.util.PageList;
 
+import java.util.Map;
 import java.util.Set;
 
 /**
  * Created on 2017/2/16.
- * @author tony
+ *
+ * @author xuwenjun
  */
 public interface RoleService {
 
@@ -40,9 +42,16 @@ public interface RoleService {
     Set<String> findRoles(Integer... roleIds);
 
     /**
+     * 查询role名称和roleId
+     * @param roleIds    需要查询的roleIds
+     * @return     结果集
+     */
+    Set<Map<String, Object>> findRoleMap(Integer... roleIds);
+
+    /**
      * 根据roleId查询所有资源名称
-     * @param roleIds
-     * @return
+     * @param roleIds  roleIds
+     * @return         资源名称集合
      */
     Set<String> findPermissions(Integer[] roleIds);
 

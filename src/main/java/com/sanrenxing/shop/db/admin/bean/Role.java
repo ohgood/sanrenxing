@@ -13,16 +13,18 @@ import java.util.Set;
 
 /**
  * Created on 2017/2/16.
- * @author tony
+ *
+ * @author xuwenjun
  */
 @Data
 @Table("sys_role")
 public class Role {
 
+
     private Integer id; //编号
 
     @NotNull(message = "角色名称不可空", groups = {Create.class})
-    @Pattern(regexp = "^[\\u4e00-\\u9fa5]{2,4}$", message = "昵称为2到4位中文", groups = {Create.class, Update.class})
+    @Pattern(regexp = "^[\\u4e00-\\u9fa5]{2,4}$", message = "角色为2到4位中文", groups = {Create.class, Update.class})
     private String role; //角色标识 程序中判断使用,如"admin"
 
     @NotNull(message = "角色描述不可空", groups = {Create.class})

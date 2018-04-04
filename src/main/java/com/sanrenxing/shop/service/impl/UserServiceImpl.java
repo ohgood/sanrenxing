@@ -16,19 +16,22 @@ import java.util.Set;
 
 /**
  * Created on 2017/2/23.
- * @author tony
+ *
+ * @author xuwenjun
  */
 @Service
 public class UserServiceImpl implements UserService {
 
-    @Autowired
-    private UserDao userDao;
+    private final UserDao userDao;
+    private final RoleService roleService;
+    private final PasswordHelper passwordHelper;
 
     @Autowired
-    private RoleService roleService;
-
-    @Autowired
-    private PasswordHelper passwordHelper;
+    public UserServiceImpl(UserDao userDao, RoleService roleService, PasswordHelper passwordHelper) {
+        this.userDao = userDao;
+        this.roleService = roleService;
+        this.passwordHelper = passwordHelper;
+    }
 
     /**
      * 创建用户
@@ -51,14 +54,14 @@ public class UserServiceImpl implements UserService {
      * @param newPassword 新密码
      */
     @Override
-    public void changePassword(Integer userId, String oldPassword, String newPassword) {
-        User user = userDao.findOne(userId);
-        String pwd = passwordHelper.encryptPassword(user.getUsername(), oldPassword, user.getSalt());
-        if (pwd.equals(user.getPassword())) {
-            user.setPassword(newPassword);
-            passwordHelper.encryptPassword(user);
-            userDao.updateUser(user);
-        }
+    public int changePassword(Integer userId, String newPassword) {
+        User oldUser = userDao.findOne(userId);
+        User user = new User();
+        user.setId(userId);
+        user.setUsername(oldUser.getUsername());
+        user.setPassword(newPassword);
+        passwordHelper.encryptPassword(user);
+        return userDao.updateUser(user);
     }
 
     @Override
@@ -84,7 +87,6 @@ public class UserServiceImpl implements UserService {
                 user.setPassword(password);
                 passwordHelper.encryptPassword(user);
             }
-
             return userDao.updateUser(user) > 0;
         }
         return false;
@@ -97,11 +99,11 @@ public class UserServiceImpl implements UserService {
      */
     @Override
     public boolean lockUser(Integer userId, Boolean locked) {
-
         User user = userDao.findOne(userId);
         if(user != null) {
             user.setLocked(locked);
-            return userDao.updateUser(user) > 0;
+            userDao.updateUser(user);
+            return true;
         }
         return false;
     }
@@ -163,7 +165,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public PageList findByPage(int currPage, int pageSize, Boolean locked) {
         PageList<User> users = userDao.findByPage(currPage, pageSize, locked);
-        users.forEach(user -> user.setRoles(StringUtil.join(findRoles(user.getUsername()), ",")));
+        users.forEach(a -> a.setRoleList(roleService.findRoleMap(a.getRoleIds().toArray(new Integer[0]))));
         return users;
     }
 

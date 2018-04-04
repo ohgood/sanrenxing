@@ -1,10 +1,14 @@
 package com.sanrenxing.shop.controller;
 
+import com.sanrenxing.shop.controller.dto.ResourceDTO;
 import com.sanrenxing.shop.db.admin.bean.User;
 import com.sanrenxing.shop.rest.SRXResponse;
+import com.sanrenxing.shop.service.ResourceService;
+import com.sanrenxing.shop.service.RoleService;
 import com.sanrenxing.shop.service.UserService;
 import com.sanrenxing.shop.shiro.realm.UserRealm;
 import com.sanrenxing.shop.util.Constants;
+import com.sanrenxing.shop.util.ShiroUtil;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.subject.Subject;
@@ -14,10 +18,13 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.constraints.Pattern;
+import javax.xml.bind.SchemaOutputResolver;
+import java.util.List;
 
 /**
  * Created on 2017/7/13
@@ -34,6 +41,9 @@ public class LoginController {
 
     @Autowired
     private UserRealm userRealm;
+
+    @Autowired
+    private ResourceService resourceService;
 
 
     @RequestMapping(value = "/login")
@@ -72,7 +82,7 @@ public class LoginController {
         } finally {
             userRealm.clearCachedAuthorizationInfo(currentUser.getPrincipals());   // 用户重新登录后，清除之前的权限数据
         }
-
+        System.out.println(ShiroUtil.getUsername() + "==========================");
         return new SRXResponse(SRXResponse.Status.SUCCESS).result(user);
     }
 
@@ -101,6 +111,13 @@ public class LoginController {
             subject.logout();
         }
         return new SRXResponse(SRXResponse.Status.LOGOUT);
+    }
+
+    @RequestMapping(value = "/get_resources", method = {RequestMethod.POST, RequestMethod.GET})
+    public SRXResponse getUserResource() {
+        System.out.println(ShiroUtil.getUsername() + ".................");
+        List<ResourceDTO> resourceBeans = resourceService.findMenus(userService.findPermissions(ShiroUtil.getUsername()));
+        return new SRXResponse(SRXResponse.Status.SUCCESS).result(resourceBeans);
     }
 
     /**

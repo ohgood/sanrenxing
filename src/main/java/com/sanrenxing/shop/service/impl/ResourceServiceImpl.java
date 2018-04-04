@@ -15,13 +15,18 @@ import java.util.stream.Collectors;
 
 /**
  * Created on 2017/2/28.
- * @author tony
+ *
+ * @author xuwenjun
  */
 @Service
 public class ResourceServiceImpl implements ResourceService {
 
+    private final ResourceDao resourceDao;
+
     @Autowired
-    private ResourceDao resourceDao;
+    public ResourceServiceImpl(ResourceDao resourceDao) {
+        this.resourceDao = resourceDao;
+    }
 
     /**
      * 创建一个资源
@@ -33,7 +38,6 @@ public class ResourceServiceImpl implements ResourceService {
     public int createResource(Resource resource) {
         String fullPermission = formatFullPermission(resource.getPermission() + ":*", resource.getParentId());
         if (fullPermission != null) {
-            resource.setFullPermission(fullPermission);
             return resourceDao.createResource(resource);
         } else {
             return 0;
@@ -70,7 +74,6 @@ public class ResourceServiceImpl implements ResourceService {
         if (resource.getParentId() != null) {
             String fullPermission = formatFullPermission(resource.getPermission() + ":*", resource.getParentId());
             if (fullPermission != null) {
-                resource.setFullPermission(fullPermission);
                 return resourceDao.updateResource(resource);
             } else {
                 return 0;
@@ -139,7 +142,7 @@ public class ResourceServiceImpl implements ResourceService {
         List<Resource> resources = resourceDao.findByPage(1, 0, null);
         if (resources != null) {
             return resources.stream().filter(a -> resourceIds.contains(a.getId()))
-                    .map(Resource::getFullPermission).collect(Collectors.toSet());
+                    .map(Resource::getPermission).collect(Collectors.toSet());
         } else {
             return new HashSet<>();
         }
@@ -147,11 +150,14 @@ public class ResourceServiceImpl implements ResourceService {
 
     /**
      * 根据用户权限得到菜单
-     * @param permissions 权限set
+     * @param permissions 权限
      * @return menus
      */
     @Override
     public List<ResourceDTO> findMenus(Set<String> permissions) {
+
+        permissions.forEach(System.out::println);
+
         List<Resource> allResources = findAll();
         List<ResourceDTO> menus = new ArrayList<>();
         allResources.stream().filter(a -> hasPermission(permissions, a) && Objects.equals(a.getType(), 0))

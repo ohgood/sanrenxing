@@ -7,13 +7,13 @@ import java.util.Set;
 
 /**
  * Created on 2017/2/23.
- * @author tony
+ *
+ * @author xuwenjun
  */
 public interface UserService {
 
     /**
      * 创建用户
-     *
      * @param user  user对象
      * @return   注册后用户
      */
@@ -23,8 +23,9 @@ public interface UserService {
      * 修改密码
      * @param userId 用户id
      * @param newPassword 新密码
+     * @return 1 : 修改成功   0： 修改失败
      */
-    void changePassword(Integer userId, String oldPassword, String newPassword);
+    int changePassword(Integer userId, String newPassword);
 
     /**
      * 更新用户
@@ -85,7 +86,6 @@ public interface UserService {
 
     /**
      * 删除所有拥有指定角色的用户的该角色
-
      */
     void removeUserRole(Integer roleId);
 

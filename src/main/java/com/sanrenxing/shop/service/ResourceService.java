@@ -9,13 +9,13 @@ import java.util.Set;
 
 /**
  * Created on 2017/2/28.
- * @author tony
+ *
+ * @author xuwenjun
  */
 public interface ResourceService {
 
     /**
      * 创建一个资源
-     *
      * @param resource   资源对象
      * @return           1： 创建完成    0： 创建失败
      */
@@ -23,7 +23,6 @@ public interface ResourceService {
 
     /**
      * 更新一个资源
-     *
      * @param resource   资源对象
      * @return 资源       1： 更新完成    0： 更新失败
      */

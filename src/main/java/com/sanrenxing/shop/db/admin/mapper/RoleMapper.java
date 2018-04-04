@@ -11,9 +11,9 @@ import java.util.List;
 
 /**
  * Created on 2017/2/23.
- * @author tony
+ *
+ * @author xuwenjun
  */
-@Mapper
 @Component
 public interface RoleMapper {
 
@@ -74,6 +74,6 @@ public interface RoleMapper {
      * @return               角色集合
      */
     @SelectProvider(type = RoleProvider.class, method = "findByResourceId")
-    List<Role> getRoles(Integer resourceId);
+    List<Role> getRoles(@Param("resourceId") Integer resourceId);
 
 }
