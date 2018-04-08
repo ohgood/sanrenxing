@@ -11,7 +11,7 @@ import java.sql.Timestamp;
  */
 @Data
 @Table("book")
-public class BookPO {
+public class GoodsPO {
 
     private int id;
 

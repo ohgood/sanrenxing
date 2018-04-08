@@ -1,9 +1,9 @@
 package com.sanrenxing.shop.service.impl;
 
 import com.sanrenxing.shop.controller.dto.BookDTO;
-import com.sanrenxing.shop.db.shop.bean.BookPO;
-import com.sanrenxing.shop.db.shop.dao.BookDao;
-import com.sanrenxing.shop.service.BookService;
+import com.sanrenxing.shop.db.shop.bean.GoodsPO;
+import com.sanrenxing.shop.db.shop.dao.GoodsDao;
+import com.sanrenxing.shop.service.GoodsService;
 import com.sanrenxing.shop.util.BeanUtil;
 import com.sanrenxing.shop.util.oss.OSSHelper;
 import org.slf4j.Logger;
@@ -22,12 +22,12 @@ import java.util.List;
  * @author tony
  */
 @Service
-public class BookServiceImpl implements BookService{
+public class GoodsServiceImpl implements GoodsService {
 
-    private final Logger logger = LoggerFactory.getLogger(BookServiceImpl.class);
+    private final Logger logger = LoggerFactory.getLogger(GoodsServiceImpl.class);
 
     @Autowired
-    private BookDao bookDao;
+    private GoodsDao goodsDao;
 
     @Autowired
     private OSSHelper ossHelper;
@@ -38,7 +38,7 @@ public class BookServiceImpl implements BookService{
      */
     @Override
     public List<BookDTO> findAll() throws IllegalAccessException, InstantiationException, InvocationTargetException {
-        List<BookPO> bookPOs = bookDao.findAll();
+        List<GoodsPO> bookPOs = goodsDao.findAll();
         //bookPOs.forEach(bookPO -> bookPO.setPicUrl(ossHelper.publicUrl(bookPO.getPicUrl())));
         return BeanUtil.copyTo(bookPOs, BookDTO.class);
     }
@@ -51,7 +51,7 @@ public class BookServiceImpl implements BookService{
      */
     @Override
     public boolean createBook(String name, String description, MultipartFile multipartFile){
-        BookPO bookPO = new BookPO();
+        GoodsPO bookPO = new GoodsPO();
         bookPO.setName(name);
         bookPO.setDescription(description);
         String picName = multipartFile.getOriginalFilename();
@@ -62,6 +62,15 @@ public class BookServiceImpl implements BookService{
             logger.error("文件上传失败！！！ name: " + name);
         }
         bookPO.setPicUrl(picName);
-        return bookDao.createBook(bookPO);
+        return goodsDao.createBook(bookPO);
+    }
+
+
+    /**
+     * 查询热门物品接口
+     * @return            查询到的书籍数据
+     */
+    public List<GoodsPO> findHot() {
+        return goodsDao.findHot();
     }
 }

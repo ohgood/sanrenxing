@@ -1,6 +1,7 @@
 package com.sanrenxing.shop.service;
 
 import com.sanrenxing.shop.controller.dto.BookDTO;
+import com.sanrenxing.shop.db.shop.bean.GoodsPO;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.lang.reflect.InvocationTargetException;
@@ -10,7 +11,7 @@ import java.util.List;
  * Created on 2018/3/15
  * @author tony
  */
-public interface BookService {
+public interface GoodsService {
 
     /**
      * 书籍查询接口
@@ -25,4 +26,10 @@ public interface BookService {
      * @param multipartFile  文件
      */
    boolean createBook(String name, String description, MultipartFile multipartFile);
+
+    /**
+     * 查询热门物品接口
+     * @return            查询到的书籍数据
+     */
+    List<GoodsPO> findHot();
 }
