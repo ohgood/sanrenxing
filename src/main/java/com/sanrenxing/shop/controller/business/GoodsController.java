@@ -1,6 +1,5 @@
 package com.sanrenxing.shop.controller.business;
 
-import com.sanrenxing.shop.db.shop.bean.GoodsPO;
 import com.sanrenxing.shop.rest.SRXResponse;
 import com.sanrenxing.shop.service.GoodsService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +10,6 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.lang.reflect.InvocationTargetException;
-import java.util.List;
 
 /**
  * Created on 2018/8/8
@@ -55,4 +53,14 @@ public class GoodsController {
     public SRXResponse findHot() {
         return new SRXResponse(SRXResponse.Status.SUCCESS).result(goodsService.findHot());
     }
+
+    /**
+     * 查询物品接口
+     * @return            查询到的书籍数据
+     */
+    @RequestMapping(value = "/findOne", method = RequestMethod.GET)
+    public SRXResponse findOne(Integer id) {
+        return new SRXResponse(SRXResponse.Status.SUCCESS).result(goodsService.findOne(id));
+    }
+
 }

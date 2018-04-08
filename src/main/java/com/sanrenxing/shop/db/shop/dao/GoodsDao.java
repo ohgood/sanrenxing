@@ -1,8 +1,7 @@
 package com.sanrenxing.shop.db.shop.dao;
 
-import com.sanrenxing.shop.db.shop.bean.GoodsPO;
+import com.sanrenxing.shop.db.shop.bean.GoodsDetailPO;
 import com.sanrenxing.shop.db.shop.mapper.GoodsMapper;
-import org.apache.ibatis.annotations.Select;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -22,7 +21,7 @@ public class GoodsDao {
      * 书籍查询接口
      * @return            查询到的书籍数据
      */
-    public List<GoodsPO> findAll() {
+    public List<GoodsDetailPO> findAll() {
         return goodsMapper.findAll();
     }
 
@@ -30,7 +29,7 @@ public class GoodsDao {
      * 书籍创建接口
      * @param bookPO      书籍
      */
-    public boolean createBook(GoodsPO bookPO){
+    public boolean createBook(GoodsDetailPO bookPO){
         return goodsMapper.createBook(bookPO) > 0;
     }
 
@@ -38,7 +37,16 @@ public class GoodsDao {
      * 查询热门物品接口
      * @return            查询到的书籍数据
      */
-    public List<GoodsPO> findHot() {
+    public List<GoodsDetailPO> findHot() {
         return goodsMapper.findHot();
     }
+
+    /**
+     * 查询物品接口
+     * @return            查询到的书籍数据
+     */
+    public GoodsDetailPO findOne(Integer id) {
+        return goodsMapper.findOne(id);
+    }
+
 }

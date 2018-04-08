@@ -1,32 +1,35 @@
 package com.sanrenxing.shop.db.shop.bean;
 
+import com.sanrenxing.shop.db.annotation.Table;
 import lombok.Data;
 
 import java.sql.Timestamp;
 
 /**
- * Created on 2018/3/22.
+ * Created on 2018/3/15.
  * @author tony
  */
 @Data
+@Table("goods")
 public class GoodsDetailPO {
 
-    private Integer id;
+    private int id;
 
-    private String goodsId;
+    private String name;
 
-    private String alipayGoodsId;
+    private String description;
 
-    private String goodsName;
+    private String picUrl;
 
-    private Integer quantity;
+    private Integer amount;
 
     private Double price;
 
-    private String goodsCategory;
+    private String type;
 
-    private String body;
+    private String saleArea;
 
     private Timestamp addTime;
 
+    private Timestamp updateTime;
 }

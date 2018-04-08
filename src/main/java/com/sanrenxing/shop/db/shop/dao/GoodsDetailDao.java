@@ -1,6 +1,6 @@
 package com.sanrenxing.shop.db.shop.dao;
 
-import com.sanrenxing.shop.db.shop.bean.GoodsDetailPO;
+import com.sanrenxing.shop.db.shop.bean.GoodsPayDetailPO;
 import com.sanrenxing.shop.db.shop.mapper.GoodsDetailMapper;
 
 /**
@@ -11,7 +11,7 @@ public class GoodsDetailDao {
 
     private GoodsDetailMapper goodsDetailMapper;
 
-    public void create(GoodsDetailPO goodsDetailPO) {
+    public void create(GoodsPayDetailPO goodsDetailPO) {
         goodsDetailMapper.create(goodsDetailPO);
     }
 }

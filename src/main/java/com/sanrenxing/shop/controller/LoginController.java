@@ -4,7 +4,6 @@ import com.sanrenxing.shop.controller.dto.ResourceDTO;
 import com.sanrenxing.shop.db.admin.bean.User;
 import com.sanrenxing.shop.rest.SRXResponse;
 import com.sanrenxing.shop.service.ResourceService;
-import com.sanrenxing.shop.service.RoleService;
 import com.sanrenxing.shop.service.UserService;
 import com.sanrenxing.shop.shiro.realm.UserRealm;
 import com.sanrenxing.shop.util.Constants;
@@ -23,7 +22,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.constraints.Pattern;
-import javax.xml.bind.SchemaOutputResolver;
 import java.util.List;
 
 /**
@@ -113,7 +111,7 @@ public class LoginController {
         return new SRXResponse(SRXResponse.Status.LOGOUT);
     }
 
-    @RequestMapping(value = "/get_resources", method = {RequestMethod.POST, RequestMethod.GET})
+    @RequestMapping(value = "/getResources", method = {RequestMethod.POST, RequestMethod.GET})
     public SRXResponse getUserResource() {
         List<ResourceDTO> resourceBeans = resourceService.findMenus(userService.findPermissions("15251323101"));
         return new SRXResponse(SRXResponse.Status.SUCCESS).result(resourceBeans);

@@ -1,27 +1,19 @@
 package com.sanrenxing.shop.db.shop.bean;
 
-import com.sanrenxing.shop.db.annotation.Table;
 import lombok.Data;
 
-import java.sql.Timestamp;
-
 /**
- * Created on 2018/3/15.
+ * Created on 2018/4/8.
  * @author tony
  */
 @Data
-@Table("book")
 public class GoodsPO {
 
     private int id;
 
     private String name;
 
-    private String description;
-
     private String picUrl;
 
-    private Timestamp addTime;
-
-    private Timestamp updateTime;
+    private String description;
 }

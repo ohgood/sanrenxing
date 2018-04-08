@@ -1,7 +1,7 @@
 package com.sanrenxing.shop.service.impl;
 
 import com.sanrenxing.shop.controller.dto.BookDTO;
-import com.sanrenxing.shop.db.shop.bean.GoodsPO;
+import com.sanrenxing.shop.db.shop.bean.GoodsDetailPO;
 import com.sanrenxing.shop.db.shop.dao.GoodsDao;
 import com.sanrenxing.shop.service.GoodsService;
 import com.sanrenxing.shop.util.BeanUtil;
@@ -38,7 +38,7 @@ public class GoodsServiceImpl implements GoodsService {
      */
     @Override
     public List<BookDTO> findAll() throws IllegalAccessException, InstantiationException, InvocationTargetException {
-        List<GoodsPO> bookPOs = goodsDao.findAll();
+        List<GoodsDetailPO> bookPOs = goodsDao.findAll();
         //bookPOs.forEach(bookPO -> bookPO.setPicUrl(ossHelper.publicUrl(bookPO.getPicUrl())));
         return BeanUtil.copyTo(bookPOs, BookDTO.class);
     }
@@ -51,7 +51,7 @@ public class GoodsServiceImpl implements GoodsService {
      */
     @Override
     public boolean createBook(String name, String description, MultipartFile multipartFile){
-        GoodsPO bookPO = new GoodsPO();
+        GoodsDetailPO bookPO = new GoodsDetailPO();
         bookPO.setName(name);
         bookPO.setDescription(description);
         String picName = multipartFile.getOriginalFilename();
@@ -70,7 +70,15 @@ public class GoodsServiceImpl implements GoodsService {
      * 查询热门物品接口
      * @return            查询到的书籍数据
      */
-    public List<GoodsPO> findHot() {
+    public List<GoodsDetailPO> findHot() {
         return goodsDao.findHot();
+    }
+
+    /**
+     * 查询物品接口
+     * @return            查询到的书籍数据
+     */
+    public GoodsDetailPO findOne(Integer id) {
+        return goodsDao.findOne(id);
     }
 }

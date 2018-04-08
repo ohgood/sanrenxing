@@ -1,7 +1,7 @@
 package com.sanrenxing.shop.service;
 
 import com.sanrenxing.shop.controller.dto.BookDTO;
-import com.sanrenxing.shop.db.shop.bean.GoodsPO;
+import com.sanrenxing.shop.db.shop.bean.GoodsDetailPO;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.lang.reflect.InvocationTargetException;
@@ -31,5 +31,11 @@ public interface GoodsService {
      * 查询热门物品接口
      * @return            查询到的书籍数据
      */
-    List<GoodsPO> findHot();
+    List<GoodsDetailPO> findHot();
+
+    /**
+     * 查询物品接口
+     * @return            查询到的书籍数据
+     */
+   GoodsDetailPO findOne(Integer id);
 }
