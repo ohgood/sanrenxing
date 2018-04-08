@@ -2,6 +2,7 @@ package com.sanrenxing.shop.service.impl;
 
 import com.sanrenxing.shop.controller.dto.BookDTO;
 import com.sanrenxing.shop.db.shop.bean.GoodsDetailPO;
+import com.sanrenxing.shop.db.shop.bean.GoodsPO;
 import com.sanrenxing.shop.db.shop.dao.GoodsDao;
 import com.sanrenxing.shop.service.GoodsService;
 import com.sanrenxing.shop.util.BeanUtil;
@@ -38,7 +39,7 @@ public class GoodsServiceImpl implements GoodsService {
      */
     @Override
     public List<BookDTO> findAll() throws IllegalAccessException, InstantiationException, InvocationTargetException {
-        List<GoodsDetailPO> bookPOs = goodsDao.findAll();
+        List<GoodsPO> bookPOs = goodsDao.findAll();
         //bookPOs.forEach(bookPO -> bookPO.setPicUrl(ossHelper.publicUrl(bookPO.getPicUrl())));
         return BeanUtil.copyTo(bookPOs, BookDTO.class);
     }
@@ -70,7 +71,7 @@ public class GoodsServiceImpl implements GoodsService {
      * 查询热门物品接口
      * @return            查询到的书籍数据
      */
-    public List<GoodsDetailPO> findHot() {
+    public List<GoodsPO> findHot() {
         return goodsDao.findHot();
     }
 
