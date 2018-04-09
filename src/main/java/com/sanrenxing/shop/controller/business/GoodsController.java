@@ -2,6 +2,7 @@ package com.sanrenxing.shop.controller.business;
 
 import com.sanrenxing.shop.rest.SRXResponse;
 import com.sanrenxing.shop.service.GoodsService;
+import com.sanrenxing.shop.service.NewsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -21,6 +22,9 @@ public class GoodsController {
 
     @Autowired
     private GoodsService goodsService;
+
+    @Autowired
+    private NewsService newsService;
 
     /**
      * 书籍查询接口
@@ -61,6 +65,15 @@ public class GoodsController {
     @RequestMapping(value = "/findOne", method = RequestMethod.GET)
     public SRXResponse findOne(Integer id) {
         return new SRXResponse(SRXResponse.Status.SUCCESS).result(goodsService.findOne(id));
+    }
+
+    /**
+     * 查询最新消息
+     * @return  新消息
+     */
+    @RequestMapping(value = "/getList", method = RequestMethod.GET)
+    public SRXResponse getList() {
+        return new SRXResponse(SRXResponse.Status.SUCCESS).result(newsService.getList());
     }
 
 }
