@@ -19,7 +19,7 @@ public interface GoodsMapper {
      * 书籍查询接口
      * @return            查询到的书籍数据
      */
-    @Select("SELECT id, name, pic_url, description, add_time, update_time FROM goods WHERE state = 0 AND type = 1 AND is_hot =0 ORDER BY add_time")
+    @Select("SELECT id, name, pic_url, description, add_time, update_time FROM goods WHERE state = 0 AND type = 1 AND amount > 0 AND is_hot =0 ORDER BY add_time")
     List<GoodsPO> findAll();
 
     /**
@@ -44,4 +44,13 @@ public interface GoodsMapper {
             ", gt.name as type FROM goods g " +
             "LEFT JOIN goods_type gt ON g.type = gt.type WHERE g.id = #{id}")
     GoodsDetailPO findOne(@Param("id") Integer id);
+
+    /**
+     * 减少库存
+     * @param id       商品id
+     * @param amount   数量
+     */
+    @Select("UPDATE goods SET amount=#{amount} WHERE id=#{id}")
+    void reduceStock(@Param("id") Integer id,
+                     @Param("amount") Integer amount);
 }

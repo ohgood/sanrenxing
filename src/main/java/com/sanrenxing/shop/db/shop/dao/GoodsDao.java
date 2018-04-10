@@ -50,4 +50,13 @@ public class GoodsDao {
         return goodsMapper.findOne(id);
     }
 
+    /**
+     * 减少库存
+     * @param id       商品id
+     * @param amount   数量
+     */
+    public void reduceStock(Integer id, Integer amount) {
+        goodsMapper.reduceStock(id, amount);
+    }
+
 }
