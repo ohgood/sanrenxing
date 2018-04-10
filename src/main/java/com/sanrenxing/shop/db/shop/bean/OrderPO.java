@@ -31,4 +31,8 @@ public class OrderPO {
 
     private String address;
 
+    private String goodsName;
+
+    private String goodsType;
+
 }

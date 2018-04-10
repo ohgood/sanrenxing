@@ -41,6 +41,8 @@ public class OrderServiceImpl implements OrderService{
                 orderPO.setReceiver(receiver);
                 orderPO.setIphone(iphone);
                 orderPO.setAddress(address);
+                orderPO.setGoodsName(goodsDetailPO.getName());
+                orderPO.setGoodsType(goodsDetailPO.getType());
                 return new SRXResponse(SRXResponse.Status.SUCCESS).result(orderDao.create(orderPO));
             } else {
                 return new SRXResponse(SRXResponse.Status.FAILURE).message("下单失败");
