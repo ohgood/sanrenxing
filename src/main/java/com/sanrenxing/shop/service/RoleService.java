@@ -9,7 +9,7 @@ import java.util.Set;
 /**
  * Created on 2017/2/16.
  *
- * @author xuwenjun
+ * @author tony
  */
 public interface RoleService {
 

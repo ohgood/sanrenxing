@@ -7,7 +7,7 @@ import java.util.Map;
 /**
  * Created on 2017/8/2.
  *
- * @author xuwenjun
+ * @author tony
  */
 public class RoleProvider {
 

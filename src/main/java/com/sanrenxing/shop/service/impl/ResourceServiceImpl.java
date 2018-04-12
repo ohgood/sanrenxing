@@ -16,7 +16,7 @@ import java.util.stream.Collectors;
 /**
  * Created on 2017/2/28.
  *
- * @author xuwenjun
+ * @author tony
  */
 @Service
 public class ResourceServiceImpl implements ResourceService {

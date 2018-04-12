@@ -12,7 +12,7 @@ import java.util.List;
 /**
  * Created on 2017/2/23.
  *
- * @author xuwenjun
+ * @author tony
  */
 @Component
 public interface RoleMapper {

@@ -17,7 +17,7 @@ import java.io.IOException;
 /**
  * Created on 2017/2/16.
  *
- * @author xuwenjun
+ * @author tony
  */
 @Data
 @Table("sys_resource")
