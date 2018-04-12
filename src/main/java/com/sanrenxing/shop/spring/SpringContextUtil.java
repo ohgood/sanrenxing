@@ -22,7 +22,7 @@ public class SpringContextUtil implements ApplicationContextAware {
         return applicationContext.getBean(t);
     }
 
-    public static <T> T getBean(String name,Class<T> t) throws BeansException {
+    public static <T> T getBean(String name, Class<T> t) throws BeansException {
         return applicationContext.getBean(name,t);
     }
 }

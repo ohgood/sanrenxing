@@ -117,7 +117,6 @@ public class ShiroConfig {
         return scheduler;
     }
 
-
     @Bean
     @DependsOn("sessionValidationScheduler")
     public DefaultWebSessionManager sessionManager() {

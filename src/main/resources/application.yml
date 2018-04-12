@@ -9,42 +9,42 @@ spring:
   jackson:
     date-format: yyyy-MM-dd HH:mm:ss
   redis:
-    host: 116.196.80.176
-    timeout: 100000
-    port: 6379
+    host:
+    timeout:
+    port:
 datasource:
   shop:
-    jdbcUrl: jdbc:mysql://116.196.80.176:3306/shop?useUnicode=true&amp;characterEncoding=utf-8
-    username: root
-    password: 123456
-    maximumPoolSize: 20
+    jdbcUrl:
+    username:
+    password:
+    maximumPoolSize:
   admin:
-    jdbcUrl: jdbc:mysql://116.196.80.176:3306/admin?useUnicode=true&amp;characterEncoding=utf-8
-    username: root
-    password: 123456
-    maximumPoolSize: 20
+    jdbcUrl:
+    username:
+    password:
+    maximumPoolSize:
 qiniuyun:
   oss:
-    accessKeyId: la0NkbDvpax3xHMXESivXgNK_spRHjvLtlcSGXdv
-    accessKeySecret: Y1zxdAxunI02SzvjUAdZ9oeqN2MrteZFD4HDcWVZ
-    bucketName: tonywu
+    accessKeyId:
+    accessKeySecret:
+    bucketName:
 pagehelper:
-  auto-dialect: true
-  helper-dialect: mysql
-  page-size-zero: true
+  auto-dialect:
+  helper-dialect:
+  page-size-zero:
 alipay:
   # 支付宝网关名、partnerId和appId
-  openApiDomain : https://openapi.alipaydev.com/gateway.do
-  mcloudApiDomain : http://mcloudmonitor.com/gateway.do
-  pid : 2088512948900239
-  appid : 2016091000478929
+  openApiDomain :
+  mcloudApiDomain :
+  pid :
+  appid :
   # RSA私钥、公钥和支付宝公钥
-  privateKey : MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCT1gl05lJi/FS4d9EUF9K4i/qH7iQ3Qps8JvkW0XUt5yjGIAZTVDNJtF33k6IonAOuH/e6BNrhtfa00nbAPPn56qyoiKqjbCByW5I5YPRWCGWFeajlJBilV5sT/PxnnizOhrc+cnSrlteD4TS2YwB407xpATF2Xt+ILGNu33dUd8CfIvDtfmXK2+tCCTp4BvLQO/KkjNrstjWUpXJO6goeXXVAns9qIB0Ac+3X0B2kj1m+Z70tW0OIK77xrckIndcJdxhUjAI7SwlTM7hgQYhH6QCqgH4PWY6MBh7WifYutD5Fjix2GvqWb/c2Mx5kwoGiqogzYsBaMNAJ2VK/nkuNAgMBAAECggEAJUGXeIJi2NdGcoafhjTKwf9kz8TQE60RegNIWtvGcB8FQ4jmjzF1C2oNFEt8XkeTFdqwj4yRrLgyyDcR/jhftv/RK1flyPGC687v9s3cRaIwE4cpbTW/kEuXpV3oLiTKnfGNVIt7o5KMFYw3wI8Km2ig3sWSNYaLRsII/PQMGpj/I3qQbFE6NeWg6YimO5oCjA/dTjVP2qh2BRRuDDaKkbZZh4HntxXqfSM/iq5ol2XCk86DgTQQRieZiIuyUTr1LUEbXHvDa+dPaU+pgVMb7Odb6cl4OlXYL01xn+m0ZLwM80Ek8agLOPBdYpWHFxRrXfBF9zhSCILEzruYjSifgQKBgQDvVOtoRyvhiZa6gw2OsqlfgSsxDOIOcRVKDKPSkFM0XY39WdwDVN5c/lHi4tbp/LgWkqUcnl+cSQp5c0N+RB8tSkzHYzwXKsMc8NCqXYoIZgrmF9x1/rsrDRoQsnfoB1r/5PRssH1if3GmmSOnQ+Nx8CxBNShgNxYzPReiHNi9FQKBgQCeIdQGR68bLX6fDtDFL/DLE8FvuD0mYlPXyo6Qi14fl4D8zTm55ssOg/8//9r08fT99EC/MO9atCB4ZNoYuANOim3y/Lvcz0OcBaYIme0sLnMELEGq4ZcYdRnMFt/0Qv5y5wwTLmGQYvNOBpoibSO4TVBmAEz0zSiqimjqmDaimQKBgHByrcho6C0nwDIRsSUCvKGqxuhc7Tlr2FzaY35jYTSRYE1RExZdobx/oWnAuslle/jfHcS8hJ+hkdJOXb/NsfhNmJV2Ap2/8bx/SQtCt8AKccR6IZMvBDHODhkaQUw7aH4izNTkd4T37CYifaXxN8Qo3CInH7lVKJEaeygn9Y2hAoGAGGHM6F77L+yW3n2RUSYwMY/NPqWgwB9fICG6U605iRN6LwCRywk7+/P8Umjn4ObByLp1lUU9UrX9X7LlMfSFhgGwLEwtx0EqAo+YZzEcsbhDwbv1MBzyiDHeFWrdgzMlOqBHa1m2b2XicABymaZMYKmDIQcg1oofoBQRU0K/AdkCgYEArLjENEX0H3mH3bX+jfCAblYVyXIrGz6AlKg501fKmI58cFrj4YDluoLhdfp8l1gXZ0miG/rA+SU55KK9jacrpSXvZ6ynaGe2KN9RVIBe6BYWR7UEE1klPUbBB3AygZVh+Tq0Cwa/Yhtc58bwufOCMx8Y2yjGqCcW6G/8m1uo8AU=
-  publicKey : MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAk9YJdOZSYvxUuHfRFBfSuIv6h+4kN0KbPCb5FtF1LecoxiAGU1QzSbRd95OiKJwDrh/3ugTa4bX2tNJ2wDz5+eqsqIiqo2wgcluSOWD0VghlhXmo5SQYpVebE/z8Z54szoa3PnJ0q5bXg+E0tmMAeNO8aQExdl7fiCxjbt93VHfAnyLw7X5lytvrQgk6eAby0DvypIza7LY1lKVyTuoKHl11QJ7PaiAdAHPt19AdpI9Zvme9LVtDiCu+8a3JCJ3XCXcYVIwCO0sJUzO4YEGIR+kAqoB+D1mOjAYe1on2LrQ+RY4sdhr6lm/3NjMeZMKBoqqIM2LAWjDQCdlSv55LjQIDAQAB
+  privateKey :
+  publicKey :
   #SHA1withRsa对应支付宝公钥
   #alipay_public_key = MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDDI6d306Q8fIfCOaTXyiUeJHkrIvYISRcc73s3vF1ZT7XN8RNPwJxo8pWaJMmvyTn9N4HQ632qJBVHf8sxHi/fEsraprwCtzvzQETrNRwVxLO5jVmRGi60j8Ue1efIlzPXV9je9mkjzOmdssymZkh2QhUrCmZYI/FCEa3/cNMW0QIDAQAB
   #SHA256withRsa对应支付宝公钥
-  alipayPublicKey : MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAtXKKQkR8jC8Gbv8UPb+TyjJPtO1vfrUh5UCyUn54Lvq9Ve2eorWwo71Ftg6e54L18JMBZhA6NrJ1Oi44Xu92bQi5wp7ApFSvqKmvc0b1Sd/m7PrKPu9jxAyDzkCVjcgmSBpNpPa6yyAM9LldvhRgzRs2iknSHKTH3YCL+mn+ZvPi0+cFd2qXiTATdCSgEhLglZxhoKUBoZgTxH0XNS7+WLp0v6xghfjJY/P9traaDISprvr4z2Yj/iorx7fGePBOJV8MirUcpVDkWzmaQ2dsmYFYIGVwIIZKe7X9WBWGMvcHnmrHSnFZ4JDjSz0q5WvMpd/oSEdUVl4Gng8uttme5QIDAQAB
+  alipayPublicKey :
   # 签名类型: RSA->SHA1withRsa,RSA2->SHA256withRsa
   signType : RSA2
   # 当面付最大查询次数和查询间隔（毫秒）
